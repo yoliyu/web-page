@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial for FHIR Implementation Guides with FHIR Shorthand (FSH) Language — Yolanda Sabuco Garcia</title>
+  <meta name="description" content="A hands-on tutorial covering FHIR IG development using FSH language — profiles, value sets, extensions, invariants, and full IG generation." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="../index.html" class="nav__logo"><img src="../images/logo.png" alt="Yolanda Sabuco" /></a>
+    <div class="nav__links">
+      <a href="../index.html" class="nav__link">Home</a>
+      <a href="../blog/index.html" class="nav__link active">Blog</a>
+    </div>
+    <div class="nav__social">
+      <a href="https://github.com/yoliyu" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg></a>
+      <a href="https://www.linkedin.com/in/yolanda-sabuco-garcia/" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a href="mailto:info@yolandasabuco.io" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
+    </div>
+    <button class="nav__hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav__mobile-menu">
+    <a href="../index.html" class="nav__mobile-link">Home</a>
+    <a href="../blog/index.html" class="nav__mobile-link">Blog</a>
+  </div>
+</nav>
+
+<div class="blog-hero">
+  <div class="container container--narrow">
+    <a href="../blog/index.html" style="font-size:0.82rem; color:var(--text-muted); display:inline-flex; align-items:center; gap:0.3rem; margin-bottom:1.25rem;">← Back to Blog</a>
+    <span class="post-cat">Interoperability</span>
+    <h1 class="post-title">Tutorial for FHIR Implementation Guides with FHIR Shorthand (FSH) Language</h1>
+    <div class="post-meta">
+      <span class="post-meta-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        14 January 2026
+      </span>
+      <span class="post-meta-item">Yolanda Sabuco Garcia</span>
+    </div>
+    <div style="margin-top:1.25rem;">
+        Open full tutorial with interactive TOC →
+      </a>
+      <a href="https://yolandasabuco.io/wp-content/uploads/2026/01/FHIR-Implementation-Guides-with-FHIR-Shorthand-FSH-language.pdf" class="btn btn--outline" style="margin-left:0.75rem;">
+        Download PDF
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="post-body">
+  <div class="post-body__inner">
+    <img class="post-img" src="../images/blog/Sushi.png" alt="FHIR Shorthand FSH Tutorial" />
+
+    <p>
+      This tutorial is a hands-on guide for building FHIR Implementation Guides using FHIR Shorthand (FSH) language.
+      It covers everything from foundational FHIR concepts through five practical exercises with solutions,
+      ending with the generation of a complete IG using sushi and the IG Publisher.
+    </p>
+
+    <p>
+      For the full interactive version with a sticky table of contents and syntax-highlighted code blocks,
+    </p>
+
+    <h2>Introduction to FHIR</h2>
+
+    <p>
+      Fast Healthcare Interoperability Resources (FHIR) represents HL7's current standard addressing data exchange
+      difficulties between diverse health information systems. The specification adapts to new architectural paradigms
+      and web development technologies, distinguishing it from predecessors like HL7 v2 and CDA.
+    </p>
+
+    <p>
+      Organisations adopting FHIR for interoperability improvement include both private companies and public institutions.
+      A notable recent initiative is HL7 Europe's work supporting the European Health Data Space (EHDS).
+    </p>
+
+    <h2>Anatomy of a FHIR Implementation Guide</h2>
+
+    <p>An FHIR Implementation Guide comprises documentation, resources, and examples addressing specific healthcare use cases. It has three fundamental elements:</p>
+
+    <ol>
+      <li><strong>Documentation</strong> — written in Markdown format</li>
+      <li><strong>FHIR Profiles</strong> — in JSON or XML format; special resources that validate agreed FHIR structures and terminology bindings</li>
+      <li><strong>Example FHIR resources</strong> — adapted to the established profiles</li>
+    </ol>
+
+    <p>
+      The <a href="https://hl7.org/fhir/uv/genomics-reporting/">HL7 FHIR Genomics Reporting Implementation Guide</a> is a good
+      reference example of this structure, standardising the exchange of genetic information data.
+    </p>
+
+    <p>
+      🔗 Full registry of FHIR implementation guides:
+      <a href="https://fhir.github.io/auto-ig-builder/builds.html">fhir.github.io/auto-ig-builder/builds.html</a>
+    </p>
+
+    <h2>FHIR Implementation Guide Generation</h2>
+
+    <p>
+      Guides follow standardised templates via the <strong>IG Publisher</strong> tool, an open-source utility maintained
+      by the FHIR community. This tool generates deployment-ready webpages from the three fundamental components.
+    </p>
+
+    <p>
+      🔗 Official Publisher documentation:
+      <a href="https://confluence.hl7.org/spaces/FHIR/pages/175618322/IG+Publisher+CLI">IG Publisher CLI</a>
+    </p>
+
+    <h2>FHIR Profiles in Implementation Guides</h2>
+
+    <blockquote>
+      "The FHIR profile is the most important element of an implementation guide. It defines the syntactic and
+      semantic structure of a dataset for the specific use case."
+    </blockquote>
+
+    <p>
+      Profiles allow you to constrain and extend FHIR resources to meet the specific requirements of your use case.
+      🔗 Matchbox FHIR resource validation tutorial:
+      <a href="https://ahdis.github.io/matchbox/validation-tutorial/">ahdis.github.io/matchbox/validation-tutorial/</a>
+    </p>
+
+    <h2>FHIR Shorthand Language</h2>
+
+    <p>
+      FHIR Shorthand (FSH) is a domain-specific language for defining FHIR profiles, extensions, value sets,
+      and instances. It enables management of implementation guides as proper software projects.
+    </p>
+
+    <p>Specifically, FSH:</p>
+    <ul>
+      <li>Reduces the complexity of working with raw JSON/XML</li>
+      <li>Enables CI/CD methodologies and source control</li>
+      <li>Operates cross-platform</li>
+    </ul>
+
+    <p>
+      🔗 FSH specification: <a href="https://build.fhir.org/ig/HL7/fhir-shorthand">build.fhir.org/ig/HL7/fhir-shorthand</a><br>
+      🔗 FSH School (official learning resource): <a href="https://fshschool.org">fshschool.org</a><br>
+      🔗 FSH Online (browser-based tool): <a href="https://fshonline.fshschool.org/#/">fshonline.fshschool.org</a><br>
+      🔗 FSH finder (registry): <a href="https://fshschool.github.io/fsh-finder/">fshschool.github.io/fsh-finder/</a>
+    </p>
+
+    <h2>Practical Exercises</h2>
+
+    <p>
+      The tutorial includes five exercises covering all the key FSH concepts. Each has working solutions hosted
+    </p>
+
+    <h3>Exercise 1 — Create an FHIR Profile</h3>
+    <p>
+      Define a <code>MyPractitioner</code> profile with sliced identifiers supporting License Number, passport, and national ID types.
+      Concepts covered: profile definition, field requirements, slicing.
+    </p>
+
+    <h3>Exercise 2 — FHIR Profiles with Terminologies</h3>
+    <p>
+      Create a SNOMED value set with specialty codes (Cardiology, Pediatric Oncology, Medical Oncology) and bind it
+      to the qualification field. Concepts covered: value sets, bindings, terminology validation vs. sushi validation.
+    </p>
+
+    <h3>Exercise 3 — Customize Profile with Extensions</h3>
+    <p>
+      Create an extension capturing practitioner years of experience and link it to the profile.
+      Concepts covered: extension creation, extension linking, extension reuse.
+    </p>
+
+    <h3>Exercise 4 — Create Profile from Inherited Profile</h3>
+    <p>
+      Start from the International Patient Summary (IPS) Patient profile and create <code>MyPatient</code>
+      requiring language, gender, name, and birthdate. Concepts covered: profile inheritance, parent specification maintenance.
+    </p>
+
+    <h3>Exercise 5 — Customize with Invariants</h3>
+    <p>
+      Identify and implement invariants from the IPS Patient profile. Key insight: invariants use FHIRPath and
+      must be validated with the FHIR Validator — not sushi — to be properly checked.
+      Concepts covered: invariants, FHIRPath, validator distinction.
+    </p>
+
+    <h2>Building a Full IG with FSH</h2>
+
+    <p>Once you have your FSH files, you can generate a complete FHIR Implementation Guide:</p>
+
+    <pre><code>sushi init
+cd ExampleIG
+./_updatePublisher.sh
+./_genonce.sh</code></pre>
+
+    <p>
+      Navigate to the <code>/output/</code> folder and open <code>index.html</code> in a browser to view the generated guide.
+      To add new resources, place <code>.fsh</code> files in <code>input/fsh/</code> and run <code>./_genonce.sh</code> again.
+    </p>
+
+    <div class="ref-box">
+      <cite>Installation requirements:</cite>
+      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style:disc; color:var(--text-secondary); font-size:0.875rem;">
+        <li><a href="https://confluence.hl7.org/spaces/FHIR/pages/175618322/IG+Publisher+CLI#IGPublisherCLI-Installation">IG Publisher CLI installation</a></li>
+        <li><a href="https://fshschool.org/docs/sushi/installation/">Sushi installation</a></li>
+      </ul>
+    </div>
+
+    <div style="margin-top:2rem; text-align:center;">
+    </div>
+
+    <div class="post-nav">
+      <a href="goodbye-roche.html" class="post-nav__item" style="text-decoration:none; display:block;">
+        <div class="post-nav__lbl">← Previous</div>
+        <div class="post-nav__title">Goodbye Roche</div>
+      </a>
+      <a href="health-tech-summit-2026.html" class="post-nav__item post-nav__item--next" style="text-decoration:none; display:block;">
+        <div class="post-nav__lbl">Next →</div>
+        <div class="post-nav__title">health.tech summit Basel 2026</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo">Yolanda Sabuco Garcia</div>
+        <div class="footer__tagline">Senior Healthcare Interoperability Specialist · Luzern, Switzerland</div>
+      </div>
+      <div class="footer__links">
+        <a href="../index.html" class="footer__link">Home</a>
+        <a href="../blog/index.html" class="footer__link">Blog</a>
+        <a href="../index.html#contact" class="footer__link">Contact</a>
+      </div>
+    </div>
+    <div class="footer__copyright">© 2026 Yolanda Sabuco Garcia · yolandasabuco.io</div>
+  </div>
+</footer>
+<button class="back-to-top" aria-label="Back to top"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg></button>
+<script src="../js/main.js"></script>
+</body>
+</html>
