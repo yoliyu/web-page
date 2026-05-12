@@ -8,7 +8,7 @@
   <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
   <style>
     /* =========================================================
@@ -63,21 +63,21 @@
     }
 
     .cvh__name {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.9rem;
-      font-weight: 700;
-      line-height: 1.1;
-      margin: 0 0 0.2rem;
+      font-family: 'Figtree', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin: 0 0 0.25rem;
       color: #1a1a1a;
     }
     .cvh__name em { color: #b07d2e; font-style: normal; }
 
     .cvh__title {
-      font-size: 0.78rem;
-      color: #777;
+      font-size: 0.75rem;
+      color: #888;
       font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      letter-spacing: 0.02em;
       margin: 0 0 0.6rem;
     }
 
@@ -102,9 +102,10 @@
       flex-shrink: 0;
     }
     .cvh__stat-val {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.6rem;
-      font-weight: 700;
+      font-family: 'Figtree', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
       color: #b07d2e;
       line-height: 1;
     }
@@ -153,13 +154,13 @@
     }
 
     .cv-sb-h {
-      font-size: 0.57rem;
+      font-size: 0.64rem;
       font-weight: 700;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: #b07d2e;
       padding-bottom: 0.38rem;
-      border-bottom: 1px solid #ddd8d0;
+      border-bottom: 2px solid #b07d2e;
       margin-bottom: 0.6rem;
     }
 
@@ -260,13 +261,13 @@
     }
 
     .cv-sec-h {
-      font-size: 0.57rem;
+      font-size: 0.64rem;
       font-weight: 700;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: #b07d2e;
       padding-bottom: 0.38rem;
-      border-bottom: 1px solid #e5dfd6;
+      border-bottom: 2px solid #b07d2e;
       margin-bottom: 0.8rem;
     }
 
@@ -296,9 +297,10 @@
       -webkit-print-color-adjust: exact;
     }
     .cv-exp-co {
-      font-family: 'Playfair Display', Georgia, serif;
+      font-family: 'Figtree', sans-serif;
       font-size: 0.88rem;
       font-weight: 700;
+      letter-spacing: -0.01em;
       color: #1a1a1a;
       margin-bottom: 0.1rem;
     }
@@ -329,9 +331,9 @@
     .cv-pub:hover { opacity: 0.72; }
     .cv-pub-yr { font-size: 0.63rem; color: #aaa; font-weight: 600; padding-top: 0.12rem; }
     .cv-pub-type {
-      font-size: 0.56rem;
+      font-size: 0.6rem;
       font-weight: 700;
-      letter-spacing: 0.07em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       color: #b07d2e;
       margin-bottom: 0.12rem;
@@ -429,7 +431,7 @@
       </div>
       <div>
         <div class="cvh__stat-val">5</div>
-        <div class="cvh__stat-lbl">International Co.</div>
+        <div class="cvh__stat-lbl">International Companies</div>
       </div>
     </div>
     <button class="cv-print-btn" onclick="window.print()">
@@ -610,7 +612,7 @@
           <div>
             <div class="cv-exp-co">AHDIS</div>
             <div class="cv-exp-role">Senior Healthcare Interoperability Specialist</div>
-            <p class="cv-exp-desc">Conceptual work creating specifications with FHIR implementation guides, IHE profiles and SwissHDS architecture. Consulting related to Digital Health for customers and projects. Technical project management of Digital Health projects and support for SwissHDS/EPR integration projects. Collaboration on Digital Health seminars, Projectathons and Connectathons. Software development on the open source suite from AHDIS and its partners — matchbox, mobile access gateway.</p>
+            <p class="cv-exp-desc">Conceptual work creating specifications with FHIR implementation guides in the context of SwissHDS. Consulting related to Digital Health for customers and projects. Technical project management of Digital Health projects and support for SwissHDS/EPR integration projects. Collaboration on Digital Health seminars, Projectathons and Connectathons. Software development on the open source suite from AHDIS and its partners — matchbox, mobile access gateway.</p>
           </div>
         </div>
 
@@ -622,7 +624,7 @@
           <div>
             <div class="cv-exp-co">Roche</div>
             <div class="cv-exp-role">Knowledge Engineer</div>
-            <p class="cv-exp-desc">Responsible for the interoperability layer in the Data Architecture department of Roche Diabetes Care. Collaborated with product teams to shape the development and integration of data models and standardization into the RIS product portfolio, enabling FAIR data services. Drove adoption and integration of interoperability standards including terminological resources (FHIR, HL7v2, LOINC, SNOMED) for RIS digital products. SAFe development environment, building interoperability solutions while adhering to security protocols and regulatory compliance policies.</p>
+            <p class="cv-exp-desc">Responsible for the interoperability layer in the Data Architecture department of Roche Diabetes Care. Collaborated with product teams to shape the development and integration of data models and standardization into the RIS product portfolio, enabling FAIR data services. Drove adoption and integration of interoperability standards including terminological resources for RIS digital products. SAFe development environment, building interoperability solutions while adhering to security protocols and regulatory compliance policies.</p>
           </div>
         </div>
 
@@ -634,7 +636,7 @@
           <div>
             <div class="cv-exp-co">Fresenius Medical Care</div>
             <div class="cv-exp-role">Data &amp; Connectivity Manager · Security Responsible</div>
-            <p class="cv-exp-desc">Designed and managed national interoperability strategy covering 45+ dialysis clinics. Identified potential interconnections between referral hospitals and clinics. Evaluated and set up requirements with stakeholders to promote interoperability in future tenders. Responsible for managing vendors, external contracts and project delivery. Led the design and implementation of a Security Management System and coordinated a successful external audit for the Spanish National Security Framework (Royal Decree 311/2022) certification — passed on the first attempt.</p>
+            <p class="cv-exp-desc">Designed and managed national interoperability strategy covering 45+ dialysis clinics. Identified potential interconnections between referral hospitals and clinics. Evaluated and set up requirements with stakeholders to promote interoperability in future tenders. Responsible for managing vendors, external contracts and project delivery. Led the design and implementation of a Security Management System and coordinated a successful external audit for the Spanish National Security Framework (Royal Decree 311/2022) certification, passed on the first attempt.</p>
           </div>
         </div>
 
@@ -646,7 +648,7 @@
           <div>
             <div class="cv-exp-co">Dedalus Healthcare</div>
             <div class="cv-exp-role">Healthcare Interoperability Specialist</div>
-            <p class="cv-exp-desc">Defined and implemented the HCIS Electronic Health Record interoperability strategy covering 130+ care centers in 3 countries and 5 million+ clinical records. Coordinated architecture and development teams. Analysed and documented client requirements, designed interoperable solutions, and maintained the clinical concept catalogue. Designed and developed FHIR Implementation Guides and HL7 V2 integrations in Enterprise Service Bus (InterSystems IRIS HealthShare).</p>
+            <p class="cv-exp-desc">Defined and implemented the Hospital Information System (HIS) interoperability strategy in a product that covers 130+ care centers in 3 countries and 5 million+ clinical records. Coordinated architecture and development teams. Analysed and documented client requirements, designed interoperable solutions, and maintained the clinical concept catalogue. Designed and developed FHIR Implementation Guides and HL7 V2 integrations in Enterprise Service Bus (InterSystems IRIS HealthShare).</p>
           </div>
         </div>
 
@@ -658,7 +660,7 @@
           <div>
             <div class="cv-exp-co">Fujitsu</div>
             <div class="cv-exp-role">Healthcare Interoperability Specialist · R&amp;D Engineer</div>
-            <p class="cv-exp-desc">Designed FHIR Implementation Guides for Laboratory Information Systems and Hospital Information Systems in genetics and Next Generation Sequencing (NGS) workflows. Built FHIR and HL7 V2 integrations in Java (Spring Framework). Analysed and documented client requirements, coded clinical concepts using medical terminologies.</p>
+            <p class="cv-exp-desc">Defined and implemented the genetics product interoperability strategy. Led FHIR Implementation Guide design for Laboratory Information Systems and Hospital Information Systems. Built FHIR and HL7 V2 integrations in Java for ordering tests and generating interoperable reports.</p>
           </div>
         </div>
 
@@ -670,7 +672,7 @@
           <div>
             <div class="cv-exp-co">Atos</div>
             <div class="cv-exp-role">Healthcare Interoperability Specialist · R&amp;D Engineer</div>
-            <p class="cv-exp-desc">Designed FHIR Implementation Guides and built FHIR and HL7 V2 integrations in Java (Spring Framework) for chronic disease management platforms (Oncology, COPD) integrating Artificial Intelligence modules. Prepared technical reports for the European Commission. Domains: ASCAPE European Project and RESAMPLE European Project.</p>
+            <p class="cv-exp-desc">Defined and implemented chronic disease management interoperability strategy for ASCAPE European Project and RESAMPLE European Project. Built FHIR in Java for Artificial Intelligence integration.</p>
           </div>
         </div>
 
@@ -682,7 +684,7 @@
           <div>
             <div class="cv-exp-co">Grupo Miranza</div>
             <div class="cv-exp-role">Technical Lead VEMoS · R&amp;D Engineer</div>
-            <p class="cv-exp-desc">Technical lead for the VEMoS European Project — a clinical trial platform and refractive surgery simulation prototype in ophthalmology. Full-stack development in Vue.js and Java (Spring Framework). Signal analysis expert in aberrometry and spectral analysis based on the Fourier Transform. Biophysical modeling of biological surfaces and ray-tracing simulations. Responsible for project delivery, vendor management and European Commission reporting.</p>
+            <p class="cv-exp-desc">Technical lead for the VEMoS European Project. Developed a clinical trial platform and refractive surgery simulation prototype in ophthalmology. Full-stack development in Vue.js and Java (Spring Framework). Signal analysis expert in aberrometry and spectral analysis based on the Fourier Transform. Biophysical modeling of biological surfaces and ray-tracing simulations. Responsible for project delivery, vendor management and European Commission reporting.</p>
           </div>
         </div>
 
@@ -694,22 +696,9 @@
           <div>
             <div class="cv-exp-co">Indra Minsait</div>
             <div class="cv-exp-role">Full-stack Software Developer · R&amp;D Engineer</div>
-            <p class="cv-exp-desc">Back-end development in Java (Spring Framework) and front-end in JavaScript (Sencha Ext.js) for a Pharmacy Information System.</p>
+            <p class="cv-exp-desc">Back-end development in Java and front-end in Sencha Ext.js for a Pharmacy Information System.</p>
           </div>
         </div>
-
-        <div class="cv-exp">
-          <div>
-            <div class="cv-exp-date">Mar 2019 – Jun 2019</div>
-            <div class="cv-exp-loc">Alicante, Spain</div>
-          </div>
-          <div>
-            <div class="cv-exp-co">Alicante University</div>
-            <div class="cv-exp-role">Full-stack Software Developer · R&amp;D Engineer</div>
-            <p class="cv-exp-desc">Back-end development in JavaScript (Node.js) and front-end in JavaScript, HTML5 and CSS for a complex disease management platform for obesity.</p>
-          </div>
-        </div>
-
       </div>
 
       <!-- SCIENCE COMMUNICATIONS -->
