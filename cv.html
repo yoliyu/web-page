@@ -376,14 +376,14 @@
 
     /* ── PRINT ───────────────────────────────── */
     @media print {
-      @page { size: A4; margin: 1cm 1.2cm; }
+      @page { size: 210mm auto; margin: 0.6cm 0.8cm; }
       .nav, .footer, .back-to-top, .cv-print-btn { display: none !important; }
+      html { font-size: 13px !important; }
       body { background: white !important; }
       .cv-bg { padding: 0; background: white; min-height: 0; }
       .cv-doc { box-shadow: none; max-width: 100%; }
       .cv-exp, .cv-pub, .cv-proj { page-break-inside: avoid; }
-      a { color: inherit !important; }
-      .cv-pub, .cv-proj { text-decoration: underline; text-underline-offset: 2px; text-decoration-color: #b07d2e; }
+      a { color: inherit !important; text-decoration: none !important; }
     }
 
     @media (max-width: 640px) {
@@ -660,7 +660,7 @@
           <div>
             <div class="cv-exp-co">AHDIS</div>
             <div class="cv-exp-role">Senior Healthcare Interoperability Specialist</div>
-            <p class="cv-exp-desc">Conceptual work creating specifications with FHIR implementation guides in the context of SwissHDS. Consulting related to Digital Health for customers and projects. Technical project management of Digital Health projects and support for SwissHDS/EPR integration projects. Collaboration on Digital Health seminars, Projectathons and Connectathons. Software development on the open source suite from AHDIS and its partners — matchbox, mobile access gateway.</p>
+            <p class="cv-exp-desc">Conceptual work creating specifications with FHIR implementation guides in the context of SwissHDS. Consulting related to Digital Health for customers and projects. Technical project management of Digital Health projects and support for SwissHDS/EPR integration projects. Collaboration on Digital Health seminars, Projectathons and Connectathons. Software development on the open source suite from AHDIS and its partners: matchbox and mobile access gateway.</p>
           </div>
         </div>
 
@@ -757,7 +757,7 @@
           <div class="cv-proj-num">01</div>
           <div>
             <div class="cv-proj-header">
-              <div class="cv-proj-title">FHIR® Implementation Guide — Swiss Federal Office of Public Health (FOPH)</div>
+              <div class="cv-proj-title">FHIR® Implementation Guide Swiss Federal Office of Public Health (FOPH)</div>
               <span class="cv-proj-arrow">↗</span>
             </div>
             <div class="cv-proj-desc">FHIR Implementation Guide for the Elektronische klinische Meldung (Electronic Clinical Notification for infectious diseases).</div>
@@ -784,8 +784,8 @@
               <div class="cv-proj-title">FHIR® Implementation Guide with Open Source Tools</div>
               <span class="cv-proj-arrow">↗</span>
             </div>
-            <div class="cv-proj-desc">End-to-end FHIR IG development using FSH language, sushi compiler, IG Publisher, and matchbox for validation.</div>
-            <div class="cv-proj-tags"><span class="cv-proj-tag">FSH</span><span class="cv-proj-tag">IG Publisher</span><span class="cv-proj-tag">Docker</span></div>
+            <div class="cv-proj-desc">End-to-end FHIR IG development using FSH language, sushi compiler, IG Publisher with Docker integration.</div>
+            <div class="cv-proj-tags"><span class="cv-proj-tag">HL7 FHIR</span><span class="cv-proj-tag">FSH</span><span class="cv-proj-tag">IG Publisher</span><span class="cv-proj-tag">Docker</span></div>
           </div>
         </a>
 
@@ -808,7 +808,7 @@
               <div class="cv-proj-title">Classifying Pathologies Using Acoustic Voice Analysis</div>
               <span class="cv-proj-arrow">↗</span>
             </div>
-            <div class="cv-proj-desc">System classifying pathologies through acoustic voice analysis using machine learning and deep learning with FHIR integration.</div>
+            <div class="cv-proj-desc">System classifying pathologies through acoustic voice analysis using machine learning.</div>
             <div class="cv-proj-tags"><span class="cv-proj-tag">Python</span><span class="cv-proj-tag">TensorFlow</span><span class="cv-proj-tag">Scikit-learn</span></div>
           </div>
         </a>
