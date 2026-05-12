@@ -6,295 +6,364 @@
   <title>CV — Yolanda Sabuco Garcia</title>
   <meta name="description" content="Curriculum Vitae — Yolanda Sabuco Garcia, Senior Healthcare Interoperability Specialist." />
   <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    /* ── CV-specific overrides ── */
-    .cv-hero {
-      padding-top: calc(var(--nav-height) + 3rem);
-      padding-bottom: 3rem;
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
+    /* =========================================================
+       CV PAGE — self-contained light design, sidebar layout
+    ========================================================= */
+    .cv-bg {
+      background: #ccc9c3;
+      min-height: 100vh;
+      padding: calc(var(--nav-height, 64px) + 2.5rem) 1rem 4rem;
     }
-    .cv-hero__inner {
-      display: flex;
+
+    .cv-doc {
+      max-width: 880px;
+      margin: 0 auto;
+      background: #fff;
+      box-shadow: 0 8px 56px rgba(0,0,0,0.28);
+      font-family: 'Figtree', 'Noto Sans', sans-serif;
+      color: #1c1c1c;
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+
+    /* ── HEADER ─────────────────────────────── */
+    .cvh {
+      background: #fff;
+      padding: 1.8rem 2.25rem 1.4rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0 1.6rem;
       align-items: center;
-      gap: 2.5rem;
+      border-bottom: 1px solid #e5dfd6;
+      position: relative;
     }
-    .cv-hero__img {
-      width: 110px;
-      height: 110px;
+    .cvh::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #9a6b22, #c8963c, #9a6b22);
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .cvh__photo {
+      width: 84px;
+      height: 84px;
       border-radius: 50%;
       object-fit: cover;
       object-position: top;
-      border: 2px solid var(--accent);
+      border: 2.5px solid #b07d2e;
       flex-shrink: 0;
     }
-    .cv-hero__name {
-      font-family: var(--font-serif);
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+
+    .cvh__name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.9rem;
       font-weight: 700;
       line-height: 1.1;
-      margin-bottom: 0.4rem;
+      margin: 0 0 0.2rem;
+      color: #1a1a1a;
     }
-    .cv-hero__name span { color: var(--accent); }
-    .cv-hero__title {
-      font-size: 1rem;
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
-    }
-    .cv-hero__contacts {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 1.5rem;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-    .cv-hero__contacts a { color: var(--text-muted); }
-    .cv-hero__contacts a:hover { color: var(--accent); }
-    .cv-hero__contacts span { display: flex; align-items: center; gap: 0.35rem; }
-    .cv-stats {
-      display: flex;
-      gap: 2rem;
-      margin-top: 1.25rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--border);
-    }
-    .cv-stat__value {
-      font-family: var(--font-serif);
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--accent);
-      line-height: 1;
-    }
-    .cv-stat__label { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem; }
+    .cvh__name em { color: #b07d2e; font-style: normal; }
 
-    /* ── Print button ── */
-    .cv-print-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin-top: 1rem;
-      padding: 0.45rem 1rem;
-      font-size: 0.8rem;
-      font-family: var(--font-sans);
-      background: transparent;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all var(--transition);
-    }
-    .cv-print-btn:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ── Section layout ── */
-    .cv-section { padding: 3rem 0; }
-    .cv-section + .cv-section { border-top: 1px solid var(--border); }
-    .cv-section--surface { background: var(--surface); }
-
-    .cv-section__label {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .cv-section__label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ── About cards ── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem;
-    }
-    .about-card {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1.25rem 1.4rem;
-    }
-    .about-card__title {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
-    }
-    .about-card__text {
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    /* ── Experience ── */
-    .cv-timeline { display: flex; flex-direction: column; gap: 0; }
-    .cv-t-item {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 0 2rem;
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .cv-t-item:last-child { border-bottom: none; }
-    .cv-t-left { padding-top: 0.1rem; }
-    .cv-t-date {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      line-height: 1.4;
-      margin-bottom: 0.3rem;
-    }
-    .cv-t-current {
-      display: inline-block;
-      font-size: 0.65rem;
-      font-weight: 600;
+    .cvh__title {
+      font-size: 0.78rem;
+      color: #777;
+      font-weight: 500;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      background: var(--accent-light);
-      color: var(--accent);
-      border-radius: 20px;
-      padding: 0.15rem 0.6rem;
-      margin-top: 0.25rem;
+      margin: 0 0 0.6rem;
     }
-    .cv-t-company {
-      font-family: var(--font-serif);
-      font-size: 1rem;
+
+    .cvh__contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem 1rem;
+      font-size: 0.71rem;
+      color: #666;
+    }
+    .cvh__contacts a { color: #666; text-decoration: none; }
+    .cvh-ci { display: inline-flex; align-items: center; gap: 0.28rem; }
+    .cvh-ci svg { color: #b07d2e; flex-shrink: 0; }
+
+    .cvh__stats {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      text-align: center;
+      border-left: 1px solid #e5dfd6;
+      padding-left: 1.4rem;
+      flex-shrink: 0;
+    }
+    .cvh__stat-val {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.6rem;
       font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.2rem;
+      color: #b07d2e;
+      line-height: 1;
     }
-    .cv-t-role {
-      font-size: 0.82rem;
-      color: var(--accent);
-      font-weight: 500;
+    .cvh__stat-lbl {
+      font-size: 0.6rem;
+      color: #999;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .cv-print-btn {
+      position: absolute;
+      bottom: 0.85rem;
+      right: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.28rem 0.7rem;
+      font-size: 0.7rem;
+      font-family: inherit;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      color: #999;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .cv-print-btn:hover { border-color: #b07d2e; color: #b07d2e; }
+
+    /* ── TWO-COLUMN BODY ─────────────────────── */
+    .cv-cols {
+      display: grid;
+      grid-template-columns: 218px 1fr;
+    }
+
+    /* ── SIDEBAR ─────────────────────────────── */
+    .cv-sb {
+      background: #f6f3ee;
+      border-right: 1px solid #e5dfd6;
+      padding: 1.5rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .cv-sb-h {
+      font-size: 0.57rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #b07d2e;
+      padding-bottom: 0.38rem;
+      border-bottom: 1px solid #ddd8d0;
       margin-bottom: 0.6rem;
     }
-    .cv-t-desc {
-      font-size: 0.82rem;
-      color: var(--text-secondary);
+
+    .cv-profile-p {
+      font-size: 0.71rem;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    .cv-comp-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.42rem;
+      margin-bottom: 0.38rem;
+    }
+    .cv-comp-item:last-child { margin-bottom: 0; }
+    .cv-comp-dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: #b07d2e;
+      flex-shrink: 0;
+      margin-top: 0.44em;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+    .cv-comp-label { font-size: 0.7rem; color: #333; font-weight: 500; line-height: 1.35; }
+
+    .cv-skill-grp { margin-bottom: 0.65rem; }
+    .cv-skill-grp:last-child { margin-bottom: 0; }
+    .cv-skill-grp-name { font-size: 0.63rem; font-weight: 600; color: #444; margin-bottom: 0.28rem; }
+    .cv-skill-tags { display: flex; flex-wrap: wrap; gap: 0.18rem; }
+    .cv-stag {
+      font-size: 0.61rem;
+      background: #fff;
+      border: 1px solid #ddd8d0;
+      color: #666;
+      padding: 0.07rem 0.36rem;
+      border-radius: 3px;
       line-height: 1.65;
     }
 
-    /* ── Education ── */
-    .cv-edu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-    .cv-edu-card {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1.25rem 1.4rem;
-    }
-    .cv-edu-degree {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.3rem;
-      line-height: 1.4;
-    }
-    .cv-edu-school { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.5rem; }
-    .cv-edu-note { font-size: 0.72rem; color: var(--text-muted); font-style: italic; margin-bottom: 0.5rem; }
-
-    /* ── Certifications ── */
-    .cert-list { display: flex; flex-direction: column; gap: 0.6rem; }
-    .cert-item {
+    .cv-lang-row {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 0.75rem;
-      padding: 0.75rem 1rem;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      font-size: 0.82rem;
+      margin-bottom: 0.32rem;
+      font-size: 0.71rem;
     }
-    .cert-item__org { color: var(--text-muted); font-size: 0.75rem; margin-left: auto; white-space: nowrap; }
-    .cert-item__name { color: var(--text-secondary); }
+    .cv-lang-row:last-child { margin-bottom: 0; }
+    .cv-lang-name { color: #333; font-weight: 500; }
+    .cv-lang-lvl { color: #999; font-size: 0.64rem; }
 
-    /* ── Languages ── */
-    .lang-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
+    .cv-edu-entry { margin-bottom: 0.75rem; }
+    .cv-edu-entry:last-child { margin-bottom: 0; }
+    .cv-edu-deg { font-size: 0.7rem; font-weight: 600; color: #222; line-height: 1.35; margin-bottom: 0.1rem; }
+    .cv-edu-sch { font-size: 0.63rem; color: #888; margin-bottom: 0.18rem; line-height: 1.3; }
+    .cv-edu-note { font-size: 0.61rem; color: #aaa; font-style: italic; margin-bottom: 0.18rem; }
+    .cv-edu-badge {
+      display: inline-block;
+      font-size: 0.56rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #b07d2e;
+      background: rgba(176,125,46,0.1);
+      border-radius: 3px;
+      padding: 0.06rem 0.38rem;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
     }
-    .lang-item {
+
+    .cv-cert-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.38rem;
+      margin-bottom: 0.48rem;
+      font-size: 0.68rem;
+    }
+    .cv-cert-row:last-child { margin-bottom: 0; }
+    .cv-cert-dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: #b07d2e;
+      flex-shrink: 0;
+      margin-top: 0.42em;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+    .cv-cert-name { color: #333; font-weight: 500; line-height: 1.35; }
+    .cv-cert-org { color: #999; font-size: 0.61rem; }
+
+    /* ── MAIN COLUMN ─────────────────────────── */
+    .cv-main {
+      padding: 1.5rem 1.75rem;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 0.25rem;
-      padding: 0.75rem 1.25rem;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      min-width: 100px;
-      text-align: center;
+      gap: 1.4rem;
     }
-    .lang-item__name { font-size: 0.85rem; font-weight: 600; color: var(--text); }
-    .lang-item__level { font-size: 0.7rem; color: var(--text-muted); }
 
-    /* ── Publications ── */
-    .cv-pub-list { display: flex; flex-direction: column; gap: 0; }
-    .cv-pub-item {
-      display: grid;
-      grid-template-columns: 50px 1fr;
-      gap: 0 1.25rem;
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--border);
-      align-items: start;
-      text-decoration: none;
-      color: inherit;
-      transition: opacity var(--transition);
+    .cv-sec-h {
+      font-size: 0.57rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #b07d2e;
+      padding-bottom: 0.38rem;
+      border-bottom: 1px solid #e5dfd6;
+      margin-bottom: 0.8rem;
     }
-    .cv-pub-item:hover { opacity: 0.75; }
-    .cv-pub-item:last-child { border-bottom: none; }
-    .cv-pub-year { font-size: 0.75rem; color: var(--text-muted); padding-top: 0.2rem; }
-    .cv-pub-type {
+
+    /* Experience */
+    .cv-exp {
+      display: grid;
+      grid-template-columns: 128px 1fr;
+      gap: 0 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eeebe6;
+    }
+    .cv-exp:last-child { border-bottom: none; padding-bottom: 0; }
+    .cv-exp-date { font-size: 0.67rem; color: #999; line-height: 1.5; }
+    .cv-exp-loc { font-size: 0.64rem; color: #bbb; margin-top: 0.08rem; }
+    .cv-exp-now {
       display: inline-block;
-      font-size: 0.65rem;
-      font-weight: 600;
+      font-size: 0.56rem;
+      font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      background: var(--accent-light);
-      color: var(--accent);
-      border-radius: 20px;
-      padding: 0.15rem 0.6rem;
-      margin-bottom: 0.3rem;
+      background: #b07d2e;
+      color: #fff;
+      border-radius: 3px;
+      padding: 0.08rem 0.42rem;
+      margin-top: 0.2rem;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
     }
-    .cv-pub-title { font-size: 0.85rem; color: var(--text); font-weight: 500; margin-bottom: 0.2rem; line-height: 1.4; }
-    .cv-pub-venue { font-size: 0.78rem; color: var(--text-muted); }
-
-    /* ── Research ── */
-    .research-grid { display: flex; flex-direction: column; gap: 0.75rem; }
-    .research-item {
-      padding: 1rem 1.25rem;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
+    .cv-exp-co {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 0.1rem;
     }
-    .research-item__title { font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; }
-    .research-item__detail { font-size: 0.78rem; color: var(--text-muted); }
+    .cv-exp-role {
+      font-size: 0.7rem;
+      color: #b07d2e;
+      font-weight: 600;
+      margin-bottom: 0.38rem;
+    }
+    .cv-exp-desc {
+      font-size: 0.7rem;
+      color: #666;
+      line-height: 1.7;
+    }
 
-    /* ── Print ── */
+    /* Publications */
+    .cv-pub {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 0 0.8rem;
+      padding-bottom: 0.72rem;
+      border-bottom: 1px solid #eeebe6;
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.2s;
+    }
+    .cv-pub:last-child { border-bottom: none; padding-bottom: 0; }
+    .cv-pub:hover { opacity: 0.72; }
+    .cv-pub-yr { font-size: 0.63rem; color: #aaa; font-weight: 600; padding-top: 0.12rem; }
+    .cv-pub-type {
+      font-size: 0.56rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #b07d2e;
+      margin-bottom: 0.12rem;
+    }
+    .cv-pub-title { font-size: 0.72rem; color: #222; font-weight: 500; line-height: 1.4; margin-bottom: 0.1rem; }
+    .cv-pub-venue { font-size: 0.63rem; color: #aaa; }
+
+    /* Research */
+    .cv-res {
+      padding-bottom: 0.72rem;
+      border-bottom: 1px solid #eeebe6;
+    }
+    .cv-res:last-child { border-bottom: none; padding-bottom: 0; }
+    .cv-res-title { font-size: 0.76rem; font-weight: 600; color: #222; margin-bottom: 0.18rem; }
+    .cv-res-detail { font-size: 0.68rem; color: #888; line-height: 1.6; }
+
+    /* ── PRINT ───────────────────────────────── */
     @media print {
-      .nav, .cv-print-btn, .back-to-top, footer { display: none !important; }
-      .cv-hero { padding-top: 1.5rem; }
-      body { background: white; color: #111; }
-      :root { --bg: #fff; --surface: #f5f5f5; --surface-2: #eee; --text: #111; --text-secondary: #444; --text-muted: #777; --border: #ddd; --accent: #a07030; --accent-light: rgba(160,112,48,0.1); }
-      .cv-section { page-break-inside: avoid; }
-      .cv-t-item { page-break-inside: avoid; }
+      @page { size: A4; margin: 1cm 1.2cm; }
+      .nav, .footer, .back-to-top, .cv-print-btn { display: none !important; }
+      body { background: white !important; }
+      .cv-bg { padding: 0; background: white; min-height: 0; }
+      .cv-doc { box-shadow: none; max-width: 100%; }
+      .cv-exp, .cv-pub { page-break-inside: avoid; }
+      a { color: inherit !important; }
     }
 
     @media (max-width: 640px) {
-      .cv-t-item { grid-template-columns: 1fr; gap: 0.25rem; }
-      .cv-hero__inner { flex-direction: column; align-items: flex-start; }
-      .cv-hero__img { width: 80px; height: 80px; }
+      .cv-cols { grid-template-columns: 1fr; }
+      .cv-sb { border-right: none; border-bottom: 1px solid #e5dfd6; }
+      .cvh { grid-template-columns: auto 1fr; }
+      .cvh__stats { display: none; }
     }
   </style>
 </head>
@@ -325,458 +394,405 @@
   </div>
 </nav>
 
-<!-- ── HERO ── -->
-<div class="cv-hero">
-  <div class="container">
-    <div class="cv-hero__inner">
-      <img class="cv-hero__img" src="images/portrait.png" alt="Yolanda Sabuco Garcia" />
+<div class="cv-bg">
+<div class="cv-doc">
+
+  <!-- ── HEADER ── -->
+  <header class="cvh">
+    <img class="cvh__photo" src="images/portrait.png" alt="Yolanda Sabuco Garcia" />
+    <div>
+      <h1 class="cvh__name"><em>Yolanda</em> Sabuco Garcia</h1>
+      <p class="cvh__title">Senior Healthcare Interoperability Specialist</p>
+      <div class="cvh__contacts">
+        <span class="cvh-ci">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Luzern, Switzerland
+        </span>
+        <span class="cvh-ci">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <a href="mailto:info@yolandasabuco.io">info@yolandasabuco.io</a>
+        </span>
+        <span class="cvh-ci">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.61 19a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 3.09 4.18 2 2 0 0 1 5.07 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +41 77 808 53 36
+        </span>
+        <span class="cvh-ci">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <a href="https://yolandasabuco.io">yolandasabuco.io</a>
+        </span>
+      </div>
+    </div>
+    <div class="cvh__stats">
       <div>
-        <h1 class="cv-hero__name"><span>Yolanda</span> Sabuco Garcia</h1>
-        <p class="cv-hero__title">Senior Healthcare Interoperability Specialist</p>
-        <div class="cv-hero__contacts">
-          <span>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Luzern, Switzerland
-          </span>
-          <span>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            <a href="mailto:info@yolandasabuco.io">info@yolandasabuco.io</a>
-          </span>
-          <span>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.61 19a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 3.09 4.18 2 2 0 0 1 5.07 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            +41 77 808 53 36
-          </span>
-          <span>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            <a href="https://yolandasabuco.io">yolandasabuco.io</a>
-          </span>
+        <div class="cvh__stat-val">+7</div>
+        <div class="cvh__stat-lbl">Years Digital Health</div>
+      </div>
+      <div>
+        <div class="cvh__stat-val">5</div>
+        <div class="cvh__stat-lbl">International Co.</div>
+      </div>
+    </div>
+    <button class="cv-print-btn" onclick="window.print()">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      Print / Save PDF
+    </button>
+  </header>
+
+  <!-- ── COLUMNS ── -->
+  <div class="cv-cols">
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="cv-sb">
+
+      <div>
+        <div class="cv-sb-h">Profile</div>
+        <p class="cv-profile-p">Healthcare interoperability specialist with 7+ years bridging technical, medical, and executive domains. Experienced in HL7 FHIR, IHE profiles, and clinical data standards across international organizations in Switzerland, Germany, and Spain.</p>
+      </div>
+
+      <div>
+        <div class="cv-sb-h">Core Competencies</div>
+        <div class="cv-comp-item"><div class="cv-comp-dot"></div><div class="cv-comp-label">360° Healthcare Vision</div></div>
+        <div class="cv-comp-item"><div class="cv-comp-dot"></div><div class="cv-comp-label">Data Strategy &amp; Governance</div></div>
+        <div class="cv-comp-item"><div class="cv-comp-dot"></div><div class="cv-comp-label">Clinical Digitalization</div></div>
+        <div class="cv-comp-item"><div class="cv-comp-dot"></div><div class="cv-comp-label">Interoperable Systems Architecture</div></div>
+        <div class="cv-comp-item"><div class="cv-comp-dot"></div><div class="cv-comp-label">Healthcare Innovation &amp; AI Integration</div></div>
+      </div>
+
+      <div>
+        <div class="cv-sb-h">IT Skills</div>
+
+        <div class="cv-skill-grp">
+          <div class="cv-skill-grp-name">Interoperability Standards</div>
+          <div class="cv-skill-tags">
+            <span class="cv-stag">HL7 FHIR</span><span class="cv-stag">HL7 V2</span><span class="cv-stag">ISO-11073</span><span class="cv-stag">DICOM</span>
+          </div>
         </div>
-        <div class="cv-stats">
+
+        <div class="cv-skill-grp">
+          <div class="cv-skill-grp-name">Interoperability Tools</div>
+          <div class="cv-skill-tags">
+            <span class="cv-stag">FHIR Shorthand</span><span class="cv-stag">FHIRPath</span><span class="cv-stag">HAPI FHIR</span><span class="cv-stag">Simplifier</span><span class="cv-stag">Forge</span><span class="cv-stag">FHIR Azure</span><span class="cv-stag">LHC FHIR Tools</span>
+          </div>
+        </div>
+
+        <div class="cv-skill-grp">
+          <div class="cv-skill-grp-name">Terminologies</div>
+          <div class="cv-skill-tags">
+            <span class="cv-stag">SNOMED CT</span><span class="cv-stag">LOINC</span><span class="cv-stag">ATC</span><span class="cv-stag">ICD</span><span class="cv-stag">HGVS</span><span class="cv-stag">Sequence Ontology</span>
+          </div>
+        </div>
+
+        <div class="cv-skill-grp">
+          <div class="cv-skill-grp-name">Regulations</div>
+          <div class="cv-skill-tags">
+            <span class="cv-stag">EHDS</span><span class="cv-stag">ENS</span><span class="cv-stag">ISO-27001</span><span class="cv-stag">GDPR</span>
+          </div>
+        </div>
+
+        <div class="cv-skill-grp">
+          <div class="cv-skill-grp-name">Enterprise Service Bus</div>
+          <div class="cv-skill-tags">
+            <span class="cv-stag">InterSystems IRIS HealthShare</span>
+          </div>
+        </div>
+
+        <div class="cv-skill-grp">
+          <div class="cv-skill-grp-name">Development</div>
+          <div class="cv-skill-tags">
+            <span class="cv-stag">Java · Spring</span><span class="cv-stag">C# · .NET</span><span class="cv-stag">Vue.js</span><span class="cv-stag">Angular</span><span class="cv-stag">Node.js</span><span class="cv-stag">Python</span>
+          </div>
+        </div>
+
+        <div class="cv-skill-grp">
+          <div class="cv-skill-grp-name">Security</div>
+          <div class="cv-skill-tags">
+            <span class="cv-stag">OAuth</span><span class="cv-stag">OpenID</span><span class="cv-stag">JWT</span><span class="cv-stag">KeyCloak</span>
+          </div>
+        </div>
+
+        <div class="cv-skill-grp">
+          <div class="cv-skill-grp-name">Infrastructure &amp; DevOps</div>
+          <div class="cv-skill-tags">
+            <span class="cv-stag">Docker</span><span class="cv-stag">Kubernetes</span><span class="cv-stag">Git</span><span class="cv-stag">GitHub</span><span class="cv-stag">GitLab</span><span class="cv-stag">SonarCloud</span>
+          </div>
+        </div>
+
+        <div class="cv-skill-grp">
+          <div class="cv-skill-grp-name">Databases</div>
+          <div class="cv-skill-tags">
+            <span class="cv-stag">MariaDB</span><span class="cv-stag">OracleDB</span><span class="cv-stag">PostgreSQL</span><span class="cv-stag">MongoDB</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div>
+        <div class="cv-sb-h">Languages</div>
+        <div class="cv-lang-row"><span class="cv-lang-name">Spanish</span><span class="cv-lang-lvl">Native</span></div>
+        <div class="cv-lang-row"><span class="cv-lang-name">Catalan</span><span class="cv-lang-lvl">Native</span></div>
+        <div class="cv-lang-row"><span class="cv-lang-name">English</span><span class="cv-lang-lvl">Professional</span></div>
+        <div class="cv-lang-row"><span class="cv-lang-name">German</span><span class="cv-lang-lvl">Basic</span></div>
+      </div>
+
+      <div>
+        <div class="cv-sb-h">Education</div>
+
+        <div class="cv-edu-entry">
+          <div class="cv-edu-deg">Master's in Web Engineering</div>
+          <div class="cv-edu-sch">Polytechnic University of Madrid, Spain</div>
+          <span class="cv-edu-badge">Master's</span>
+        </div>
+
+        <div class="cv-edu-entry">
+          <div class="cv-edu-deg">Bachelor's in Biomedical Engineering</div>
+          <div class="cv-edu-sch">University of Alicante, Spain</div>
+          <span class="cv-edu-badge">Bachelor's</span>
+        </div>
+
+        <div class="cv-edu-entry">
+          <div class="cv-edu-deg">Bachelor's in Medicine</div>
+          <div class="cv-edu-sch">Miguel Hernández University, Spain</div>
+          <div class="cv-edu-note">Studied up to 3rd year</div>
+          <span class="cv-edu-badge">Partial Degree</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="cv-sb-h">Certifications</div>
+
+        <div class="cv-cert-row">
+          <div class="cv-cert-dot"></div>
           <div>
-            <div class="cv-stat__value">+7</div>
-            <div class="cv-stat__label">Years in Digital Health</div>
+            <div class="cv-cert-name">HL7 FHIR® Proficient</div>
+            <div class="cv-cert-org">Health Level 7</div>
+          </div>
+        </div>
+
+        <div class="cv-cert-row">
+          <div class="cv-cert-dot"></div>
+          <div>
+            <div class="cv-cert-name">Spanish Security Framework (ENS — Royal Decree 311/2022)</div>
+            <div class="cv-cert-org">CCN-CERT</div>
+          </div>
+        </div>
+
+        <div class="cv-cert-row">
+          <div class="cv-cert-dot"></div>
+          <div>
+            <div class="cv-cert-name">Fundamentals of SNOMED CT</div>
+            <div class="cv-cert-org">SNOMED International</div>
+          </div>
+        </div>
+
+        <div class="cv-cert-row">
+          <div class="cv-cert-dot"></div>
+          <div>
+            <div class="cv-cert-name">Fundamentals of Deep Learning</div>
+            <div class="cv-cert-org">NVIDIA</div>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ── MAIN ── -->
+    <main class="cv-main">
+
+      <!-- EXPERIENCE -->
+      <div>
+        <div class="cv-sec-h">Experience</div>
+
+        <div class="cv-exp">
+          <div>
+            <div class="cv-exp-date">Zurich, Switzerland</div>
+            <div class="cv-exp-now">Now</div>
           </div>
           <div>
-            <div class="cv-stat__value">5</div>
-            <div class="cv-stat__label">International Companies</div>
+            <div class="cv-exp-co">AHDIS</div>
+            <div class="cv-exp-role">Senior Healthcare Interoperability Specialist</div>
+            <p class="cv-exp-desc">Conceptual work creating specifications with FHIR implementation guides, IHE profiles and SwissHDS architecture. Consulting related to Digital Health for customers and projects. Technical project management of Digital Health projects and support for SwissHDS/EPR integration projects. Collaboration on Digital Health seminars, Projectathons and Connectathons. Software development on the open source suite from AHDIS and its partners — matchbox, mobile access gateway.</p>
           </div>
         </div>
-        <button class="cv-print-btn" onclick="window.print()">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-          Print / Save as PDF
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- ── ABOUT ── -->
-<div class="cv-section">
-  <div class="container">
-    <div class="cv-section__label">About me</div>
-    <div class="about-grid">
-      <div class="about-card">
-        <div class="about-card__title">360° Healthcare Vision</div>
-        <p class="about-card__text">Bridging the gap between technical, medical, and executive departments, leveraging a multidisciplinary background in Medicine, Biomedical Engineering, and Web Engineering.</p>
-      </div>
-      <div class="about-card">
-        <div class="about-card__title">Data Strategy &amp; Governance</div>
-        <p class="about-card__text">Proven experience defining data flows within large scale organizations ensuring strict compliance with complex regulations.</p>
-      </div>
-      <div class="about-card">
-        <div class="about-card__title">Clinical Digitalization</div>
-        <p class="about-card__text">Specialist in translating complex clinical requirements into digital products across highly specialized medical domains, including Hospital Information Systems, Oncology, Genetics, Dialysis, Diabetes and Optics.</p>
-      </div>
-      <div class="about-card">
-        <div class="about-card__title">Interoperable Systems Architecture</div>
-        <p class="about-card__text">Expertise in designing comprehensive data ecosystems beyond standard implementation, utilizing Enterprise Service Bus, Cloud environments and modern microservices architectures.</p>
-      </div>
-      <div class="about-card">
-        <div class="about-card__title">Healthcare Innovation</div>
-        <p class="about-card__text">Skilled in effectively integrating AI insights into clinical workflows.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ── EXPERIENCE ── -->
-<div class="cv-section cv-section--surface">
-  <div class="container">
-    <div class="cv-section__label">Experience</div>
-    <div class="cv-timeline">
-
-      <div class="cv-t-item">
-        <div class="cv-t-left">
-          <div class="cv-t-date">Zurich, Switzerland</div>
-          <div class="cv-t-current">Now</div>
+        <div class="cv-exp">
+          <div>
+            <div class="cv-exp-date">Nov 2024 – Dec 2025</div>
+            <div class="cv-exp-loc">Basel, Switzerland</div>
+          </div>
+          <div>
+            <div class="cv-exp-co">Roche</div>
+            <div class="cv-exp-role">Knowledge Engineer</div>
+            <p class="cv-exp-desc">Responsible for the interoperability layer in the Data Architecture department of Roche Diabetes Care. Collaborated with product teams to shape the development and integration of data models and standardization into the RIS product portfolio, enabling FAIR data services. Drove adoption and integration of interoperability standards including terminological resources (FHIR, HL7v2, LOINC, SNOMED) for RIS digital products. SAFe development environment, building interoperability solutions while adhering to security protocols and regulatory compliance policies.</p>
+          </div>
         </div>
-        <div>
-          <div class="cv-t-company">AHDIS</div>
-          <div class="cv-t-role">Senior Healthcare Interoperability Specialist</div>
-          <p class="cv-t-desc">Conceptual work creating specifications with FHIR implementation guides, IHE profiles and SwissHDS architecture. Consulting related to Digital Health for customers and projects. Technical project management of Digital Health projects and support for SwissHDS/EPR integration projects. Collaboration on Digital Health seminars, Projectathons and Connectathons. Software development on the open source suite from AHDIS and its partners — matchbox, mobile access gateway.</p>
+
+        <div class="cv-exp">
+          <div>
+            <div class="cv-exp-date">Mar 2024 – Nov 2024</div>
+            <div class="cv-exp-loc">Madrid, Spain</div>
+          </div>
+          <div>
+            <div class="cv-exp-co">Fresenius Medical Care</div>
+            <div class="cv-exp-role">Data &amp; Connectivity Manager · Security Responsible</div>
+            <p class="cv-exp-desc">Designed and managed national interoperability strategy covering 45+ dialysis clinics. Identified potential interconnections between referral hospitals and clinics. Evaluated and set up requirements with stakeholders to promote interoperability in future tenders. Responsible for managing vendors, external contracts and project delivery. Led the design and implementation of a Security Management System and coordinated a successful external audit for the Spanish National Security Framework (Royal Decree 311/2022) certification — passed on the first attempt.</p>
+          </div>
         </div>
+
+        <div class="cv-exp">
+          <div>
+            <div class="cv-exp-date">Oct 2022 – Mar 2024</div>
+            <div class="cv-exp-loc">Madrid, Spain</div>
+          </div>
+          <div>
+            <div class="cv-exp-co">Dedalus Healthcare</div>
+            <div class="cv-exp-role">Healthcare Interoperability Specialist</div>
+            <p class="cv-exp-desc">Defined and implemented the HCIS Electronic Health Record interoperability strategy covering 130+ care centers in 3 countries and 5 million+ clinical records. Coordinated architecture and development teams. Analysed and documented client requirements, designed interoperable solutions, and maintained the clinical concept catalogue. Designed and developed FHIR Implementation Guides and HL7 V2 integrations in Enterprise Service Bus (InterSystems IRIS HealthShare).</p>
+          </div>
+        </div>
+
+        <div class="cv-exp">
+          <div>
+            <div class="cv-exp-date">Jun 2022 – Oct 2022</div>
+            <div class="cv-exp-loc">Madrid, Spain</div>
+          </div>
+          <div>
+            <div class="cv-exp-co">Fujitsu</div>
+            <div class="cv-exp-role">Healthcare Interoperability Specialist · R&amp;D Engineer</div>
+            <p class="cv-exp-desc">Designed FHIR Implementation Guides for Laboratory Information Systems and Hospital Information Systems in genetics and Next Generation Sequencing (NGS) workflows. Built FHIR and HL7 V2 integrations in Java (Spring Framework). Analysed and documented client requirements, coded clinical concepts using medical terminologies.</p>
+          </div>
+        </div>
+
+        <div class="cv-exp">
+          <div>
+            <div class="cv-exp-date">Oct 2021 – Jun 2022</div>
+            <div class="cv-exp-loc">Madrid, Spain</div>
+          </div>
+          <div>
+            <div class="cv-exp-co">Atos</div>
+            <div class="cv-exp-role">Healthcare Interoperability Specialist · R&amp;D Engineer</div>
+            <p class="cv-exp-desc">Designed FHIR Implementation Guides and built FHIR and HL7 V2 integrations in Java (Spring Framework) for chronic disease management platforms (Oncology, COPD) integrating Artificial Intelligence modules. Prepared technical reports for the European Commission. Domains: ASCAPE European Project and RESAMPLE European Project.</p>
+          </div>
+        </div>
+
+        <div class="cv-exp">
+          <div>
+            <div class="cv-exp-date">Mar 2020 – Oct 2021</div>
+            <div class="cv-exp-loc">Madrid, Spain</div>
+          </div>
+          <div>
+            <div class="cv-exp-co">Grupo Miranza</div>
+            <div class="cv-exp-role">Technical Lead VEMoS · R&amp;D Engineer</div>
+            <p class="cv-exp-desc">Technical lead for the VEMoS European Project — a clinical trial platform and refractive surgery simulation prototype in ophthalmology. Full-stack development in Vue.js and Java (Spring Framework). Signal analysis expert in aberrometry and spectral analysis based on the Fourier Transform. Biophysical modeling of biological surfaces and ray-tracing simulations. Responsible for project delivery, vendor management and European Commission reporting.</p>
+          </div>
+        </div>
+
+        <div class="cv-exp">
+          <div>
+            <div class="cv-exp-date">Mar 2019 – Dec 2019</div>
+            <div class="cv-exp-loc">Valencia, Spain</div>
+          </div>
+          <div>
+            <div class="cv-exp-co">Indra Minsait</div>
+            <div class="cv-exp-role">Full-stack Software Developer · R&amp;D Engineer</div>
+            <p class="cv-exp-desc">Back-end development in Java (Spring Framework) and front-end in JavaScript (Sencha Ext.js) for a Pharmacy Information System.</p>
+          </div>
+        </div>
+
+        <div class="cv-exp">
+          <div>
+            <div class="cv-exp-date">Mar 2019 – Jun 2019</div>
+            <div class="cv-exp-loc">Alicante, Spain</div>
+          </div>
+          <div>
+            <div class="cv-exp-co">Alicante University</div>
+            <div class="cv-exp-role">Full-stack Software Developer · R&amp;D Engineer</div>
+            <p class="cv-exp-desc">Back-end development in JavaScript (Node.js) and front-end in JavaScript, HTML5 and CSS for a complex disease management platform for obesity.</p>
+          </div>
+        </div>
+
       </div>
 
-      <div class="cv-t-item">
-        <div class="cv-t-left">
-          <div class="cv-t-date">Nov 2024 – Dec 2025</div>
-          <div class="cv-t-date">Basel, Switzerland</div>
-        </div>
-        <div>
-          <div class="cv-t-company">Roche</div>
-          <div class="cv-t-role">Knowledge Engineer</div>
-          <p class="cv-t-desc">Responsible for the interoperability layer in the Data Architecture department of Roche Diabetes Care. Collaborated with product teams to shape the development and integration of data models and standardization into the RIS product portfolio, enabling FAIR data services. Drove adoption and integration of interoperability standards including terminological resources (FHIR, HL7v2, LOINC, SNOMED) for RIS digital products. SAFe development environment, building interoperability solutions while adhering to security protocols and regulatory compliance policies.</p>
-        </div>
+      <!-- SCIENCE COMMUNICATIONS -->
+      <div>
+        <div class="cv-sec-h">Science Communications</div>
+
+        <a class="cv-pub" href="https://pubmed.ncbi.nlm.nih.gov/31581880/" target="_blank" rel="noopener">
+          <div class="cv-pub-yr">2019</div>
+          <div>
+            <div class="cv-pub-type">Journal Article</div>
+            <div class="cv-pub-title">Business Process Management for optimizing clinical processes: A systematic literature review</div>
+            <div class="cv-pub-venue">De Ramón Alberto, Ruíz-Fernández Daniel, Sabuco García Yolanda · Health Informatics Journal</div>
+          </div>
+        </a>
+
+        <a class="cv-pub" href="https://caseib.es/2023/wp-content/uploads/2023/12/CASEIB2023_LIBRO_DE_ACTAS_FINAL_COMP.pdf" target="_blank" rel="noopener">
+          <div class="cv-pub-yr">2023</div>
+          <div>
+            <div class="cv-pub-type">Congress</div>
+            <div class="cv-pub-title">Classifying pathologies using acoustic voice analysis</div>
+            <div class="cv-pub-venue">Annual Congress of the Spanish Society of Biomedical Engineering</div>
+          </div>
+        </a>
+
+        <a class="cv-pub" href="https://github.com/yoliyu/diseases-detection-by-voice/blob/master/Poster-Transform4EuropeSymposium2023.pdf" target="_blank" rel="noopener">
+          <div class="cv-pub-yr">2023</div>
+          <div>
+            <div class="cv-pub-type">Symposium</div>
+            <div class="cv-pub-title">Binary classification by voice using machine learning in the Saarbrücken Voice Database</div>
+            <div class="cv-pub-venue">TRANSFORM4EUROPE Doctoral Symposium · University of Alicante</div>
+          </div>
+        </a>
+
+        <a class="cv-pub" href="https://oa.upm.es/71085/" target="_blank" rel="noopener">
+          <div class="cv-pub-yr">2022</div>
+          <div>
+            <div class="cv-pub-type">Master's Thesis</div>
+            <div class="cv-pub-title">Interoperable platform for monitoring patients with obesity</div>
+            <div class="cv-pub-venue">School of Computer Systems Engineering · Technical University of Madrid</div>
+          </div>
+        </a>
+
+        <a class="cv-pub" href="https://eps.ua.es/es/ingenieria-biomedica/documentos/ejemplos-tfg/2020-2021/tfg-e.pdf" target="_blank" rel="noopener">
+          <div class="cv-pub-yr">2021</div>
+          <div>
+            <div class="cv-pub-type">Bachelor's Thesis</div>
+            <div class="cv-pub-title">FHIR Interoperability in Personal Health Devices (PHD Bluetooth profile, ISO 11073 and FHIR)</div>
+            <div class="cv-pub-venue">Polytechnic School · University of Alicante</div>
+          </div>
+        </a>
+
+        <a class="cv-pub" href="https://www.senc.es/wp-content/uploads/2024/11/COMUNICATIONS-SENC2015.pdf" target="_blank" rel="noopener">
+          <div class="cv-pub-yr">2015</div>
+          <div>
+            <div class="cv-pub-type">Congress</div>
+            <div class="cv-pub-title">FGF8 contribution in the specification and differentiation of the hypothalamus</div>
+            <div class="cv-pub-venue">16th National Congress of the Spanish Society of Neuroscience · Research Intern, Institute of Neurosciences (CSIC-UMH)</div>
+          </div>
+        </a>
+
       </div>
 
-      <div class="cv-t-item">
-        <div class="cv-t-left">
-          <div class="cv-t-date">Mar 2024 – Nov 2024</div>
-          <div class="cv-t-date">Madrid, Spain</div>
+      <!-- RESEARCH & ACADEMIC -->
+      <div>
+        <div class="cv-sec-h">Research &amp; Academic Outreach</div>
+
+        <div class="cv-res">
+          <div class="cv-res-title">Research Intern | Experimental Embryology Laboratory</div>
+          <div class="cv-res-detail">Institute of Neurosciences (CSIC-UMH), Alicante, Spain · Summer 2014 &amp; Summer 2015 (6 months total)</div>
         </div>
-        <div>
-          <div class="cv-t-company">Fresenius Medical Care</div>
-          <div class="cv-t-role">Data &amp; Connectivity Manager · Security Responsible</div>
-          <p class="cv-t-desc">Designed and managed national interoperability strategy covering 45+ dialysis clinics. Identified potential interconnections between referral hospitals and clinics. Evaluated and set up requirements with stakeholders to promote interoperability in future tenders. Responsible for managing vendors, external contracts and project delivery. Led the design and implementation of a Security Management System and coordinated a successful external audit for the Spanish National Security Framework (Royal Decree 311/2022) certification — passed on the first attempt.</p>
+
+        <div class="cv-res">
+          <div class="cv-res-title">Academic and Teaching Experience | Telemedicine &amp; Biomedical Engineering</div>
+          <div class="cv-res-detail">Invited by the University of Alicante in 2024 and 2025 to give a series of talks to Biomedical Engineering students on challenges in implementing interoperable systems.</div>
         </div>
+
       </div>
 
-      <div class="cv-t-item">
-        <div class="cv-t-left">
-          <div class="cv-t-date">Oct 2022 – Mar 2024</div>
-          <div class="cv-t-date">Madrid, Spain</div>
-        </div>
-        <div>
-          <div class="cv-t-company">Dedalus Healthcare</div>
-          <div class="cv-t-role">Healthcare Interoperability Specialist</div>
-          <p class="cv-t-desc">Defined and implemented the HCIS Electronic Health Record interoperability strategy covering 130+ care centers in 3 countries and 5 million+ clinical records. Coordinated architecture and development teams. Analysed and documented client requirements, designed interoperable solutions, and maintained the clinical concept catalogue. Designed and developed FHIR Implementation Guides and HL7 V2 integrations in Enterprise Service Bus (InterSystems IRIS HealthShare).</p>
-        </div>
-      </div>
+    </main>
+  </div><!-- cv-cols -->
 
-      <div class="cv-t-item">
-        <div class="cv-t-left">
-          <div class="cv-t-date">Jun 2022 – Oct 2022</div>
-          <div class="cv-t-date">Madrid, Spain</div>
-        </div>
-        <div>
-          <div class="cv-t-company">Fujitsu</div>
-          <div class="cv-t-role">Healthcare Interoperability Specialist · R&amp;D Engineer</div>
-          <p class="cv-t-desc">Designed FHIR Implementation Guides for Laboratory Information Systems and Hospital Information Systems in genetics and Next Generation Sequencing (NGS) workflows. Built FHIR and HL7 V2 integrations in Java (Spring Framework). Analysed and documented client requirements, coded clinical concepts using medical terminologies.</p>
-        </div>
-      </div>
-
-      <div class="cv-t-item">
-        <div class="cv-t-left">
-          <div class="cv-t-date">Oct 2021 – Jun 2022</div>
-          <div class="cv-t-date">Madrid, Spain</div>
-        </div>
-        <div>
-          <div class="cv-t-company">Atos</div>
-          <div class="cv-t-role">Healthcare Interoperability Specialist · R&amp;D Engineer</div>
-          <p class="cv-t-desc">Designed FHIR Implementation Guides and built FHIR and HL7 V2 integrations in Java (Spring Framework) for chronic disease management platforms (Oncology, COPD) integrating Artificial Intelligence modules. Prepared technical reports for the European Commission. Domains: ASCAPE European Project and RESAMPLE European Project.</p>
-        </div>
-      </div>
-
-      <div class="cv-t-item">
-        <div class="cv-t-left">
-          <div class="cv-t-date">Mar 2020 – Oct 2021</div>
-          <div class="cv-t-date">Madrid, Spain</div>
-        </div>
-        <div>
-          <div class="cv-t-company">Grupo Miranza</div>
-          <div class="cv-t-role">Technical Lead VEMoS · R&amp;D Engineer</div>
-          <p class="cv-t-desc">Technical lead for the VEMoS European Project — a clinical trial platform and refractive surgery simulation prototype in ophthalmology. Full-stack development in Vue.js and Java (Spring Framework). Signal analysis expert in aberrometry and spectral analysis based on the Fourier Transform. Biophysical modeling of biological surfaces and ray-tracing simulations. Responsible for project delivery, vendor management and European Commission reporting.</p>
-        </div>
-      </div>
-
-      <div class="cv-t-item">
-        <div class="cv-t-left">
-          <div class="cv-t-date">Mar 2019 – Dec 2019</div>
-          <div class="cv-t-date">Valencia, Spain</div>
-        </div>
-        <div>
-          <div class="cv-t-company">Indra Minsait</div>
-          <div class="cv-t-role">Full-stack Software Developer · R&amp;D Engineer</div>
-          <p class="cv-t-desc">Back-end development in Java (Spring Framework) and front-end in JavaScript (Sencha Ext.js) for a Pharmacy Information System.</p>
-        </div>
-      </div>
-
-      <div class="cv-t-item">
-        <div class="cv-t-left">
-          <div class="cv-t-date">Mar 2019 – Jun 2019</div>
-          <div class="cv-t-date">Alicante, Spain</div>
-        </div>
-        <div>
-          <div class="cv-t-company">Alicante University</div>
-          <div class="cv-t-role">Full-stack Software Developer · R&amp;D Engineer</div>
-          <p class="cv-t-desc">Back-end development in JavaScript (Node.js) and front-end in JavaScript, HTML5 and CSS for a complex disease management platform for obesity.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- ── EDUCATION + CERTIFICATIONS ── -->
-<div class="cv-section">
-  <div class="container">
-    <div class="cv-section__label">Education</div>
-    <div class="cv-edu-grid" style="margin-bottom: 2.5rem;">
-      <div class="cv-edu-card">
-        <div class="cv-edu-degree">Master's degree in Web Engineering</div>
-        <div class="cv-edu-school">Polytechnic University of Madrid, Spain</div>
-        <span class="education-badge">Master's</span>
-      </div>
-      <div class="cv-edu-card">
-        <div class="cv-edu-degree">Bachelor's degree in Biomedical Engineering</div>
-        <div class="cv-edu-school">University of Alicante, Spain</div>
-        <span class="education-badge">Bachelor's</span>
-      </div>
-      <div class="cv-edu-card">
-        <div class="cv-edu-degree">Bachelor's degree in Medicine</div>
-        <div class="cv-edu-school">Miguel Hernández University, Spain</div>
-        <div class="cv-edu-note">Studied up to 3rd year</div>
-        <span class="education-badge">Partial Degree</span>
-      </div>
-    </div>
-
-    <div class="cv-section__label">Certifications</div>
-    <div class="cert-list">
-      <div class="cert-item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--accent);flex-shrink:0"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-        <span class="cert-item__name">HL7 FHIR® Proficient</span>
-        <span class="cert-item__org">Health Level 7</span>
-      </div>
-      <div class="cert-item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--accent);flex-shrink:0"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-        <span class="cert-item__name">Spanish Security Framework Course (Royal Decree 311/2022, of May 3)</span>
-        <span class="cert-item__org">CCN-CERT</span>
-      </div>
-      <div class="cert-item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--accent);flex-shrink:0"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-        <span class="cert-item__name">Fundamentals of SNOMED CT</span>
-        <span class="cert-item__org">SNOMED International</span>
-      </div>
-      <div class="cert-item">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--accent);flex-shrink:0"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-        <span class="cert-item__name">Fundamentals of Deep Learning</span>
-        <span class="cert-item__org">NVIDIA</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ── LANGUAGES ── -->
-<div class="cv-section cv-section--surface">
-  <div class="container">
-    <div class="cv-section__label">Languages</div>
-    <div class="lang-grid">
-      <div class="lang-item">
-        <div class="lang-item__name">Spanish</div>
-        <div class="lang-item__level">Native</div>
-      </div>
-      <div class="lang-item">
-        <div class="lang-item__name">Catalan</div>
-        <div class="lang-item__level">Native</div>
-      </div>
-      <div class="lang-item">
-        <div class="lang-item__name">English</div>
-        <div class="lang-item__level">Professional</div>
-      </div>
-      <div class="lang-item">
-        <div class="lang-item__name">German</div>
-        <div class="lang-item__level">Basic</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ── IT SKILLS ── -->
-<div class="cv-section">
-  <div class="container">
-    <div class="cv-section__label">IT Skills</div>
-    <div class="skills-grid">
-
-      <div class="skill-card r d1">
-        <span class="skill-card__icon">⚕</span>
-        <h3 class="skill-card__title">Interoperability Standards</h3>
-        <div class="skill-card__tags">
-          <span class="stag">HL7 FHIR</span><span class="stag">HL7 V2</span><span class="stag">ISO-11073</span><span class="stag">DICOM</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d2">
-        <span class="skill-card__icon">🔗</span>
-        <h3 class="skill-card__title">Interoperability Technologies</h3>
-        <div class="skill-card__tags">
-          <span class="stag">FHIR Shorthand</span><span class="stag">FHIRPath</span><span class="stag">HAPI FHIR</span><span class="stag">Simplifier</span><span class="stag">Forge</span><span class="stag">FHIR Azure</span><span class="stag">LHC FHIR Tools</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d3">
-        <span class="skill-card__icon">🏥</span>
-        <h3 class="skill-card__title">Terminologies &amp; Nomenclators</h3>
-        <div class="skill-card__tags">
-          <span class="stag">SNOMED CT</span><span class="stag">LOINC</span><span class="stag">ATC</span><span class="stag">ICD</span><span class="stag">HGVS</span><span class="stag">Sequence Ontology</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d1">
-        <span class="skill-card__icon">📋</span>
-        <h3 class="skill-card__title">Regulations</h3>
-        <div class="skill-card__tags">
-          <span class="stag">EHDS</span><span class="stag">ENS</span><span class="stag">ISO-27001</span><span class="stag">GDPR</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d2">
-        <span class="skill-card__icon">🔀</span>
-        <h3 class="skill-card__title">Enterprise Service Bus</h3>
-        <div class="skill-card__tags">
-          <span class="stag">InterSystems IRIS HealthShare</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d3">
-        <span class="skill-card__icon">☕</span>
-        <h3 class="skill-card__title">Java</h3>
-        <div class="skill-card__tags">
-          <span class="stag">Spring Framework</span><span class="stag">JUnit</span><span class="stag">Mockito</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d1">
-        <span class="skill-card__icon">◆</span>
-        <h3 class="skill-card__title">.NET</h3>
-        <div class="skill-card__tags">
-          <span class="stag">C#</span><span class="stag">Dapper</span><span class="stag">Entity Framework Core</span><span class="stag">SQL Server</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d2">
-        <span class="skill-card__icon">⚡</span>
-        <h3 class="skill-card__title">JavaScript</h3>
-        <div class="skill-card__tags">
-          <span class="stag">Vue.js</span><span class="stag">Angular</span><span class="stag">Node.js</span><span class="stag">Ionic</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d3">
-        <span class="skill-card__icon">🐍</span>
-        <h3 class="skill-card__title">Python</h3>
-        <div class="skill-card__tags">
-          <span class="stag">FastAPI</span><span class="stag">NumPy</span><span class="stag">Pandas</span><span class="stag">SciPy</span><span class="stag">Scikit-learn</span><span class="stag">TensorFlow</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d1">
-        <span class="skill-card__icon">🔒</span>
-        <h3 class="skill-card__title">Security</h3>
-        <div class="skill-card__tags">
-          <span class="stag">OAuth</span><span class="stag">OpenID</span><span class="stag">CAS</span><span class="stag">JWT</span><span class="stag">KeyCloak</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d2">
-        <span class="skill-card__icon">🐳</span>
-        <h3 class="skill-card__title">Virtualization &amp; CI/CD</h3>
-        <div class="skill-card__tags">
-          <span class="stag">Docker</span><span class="stag">Kubernetes</span><span class="stag">Git</span><span class="stag">GitHub</span><span class="stag">GitLab</span><span class="stag">JFrog</span><span class="stag">SonarCloud</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d3">
-        <span class="skill-card__icon">🗄</span>
-        <h3 class="skill-card__title">Databases</h3>
-        <div class="skill-card__tags">
-          <span class="stag">MariaDB</span><span class="stag">OracleDB</span><span class="stag">PostgreSQL</span><span class="stag">MongoDB</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- ── PUBLICATIONS ── -->
-<div class="cv-section cv-section--surface">
-  <div class="container">
-    <div class="cv-section__label">Science Communications</div>
-    <div class="cv-pub-list">
-
-      <a class="cv-pub-item" href="https://pubmed.ncbi.nlm.nih.gov/31581880/" target="_blank" rel="noopener">
-        <div class="cv-pub-year">2019</div>
-        <div>
-          <span class="cv-pub-type">Journal Article</span>
-          <div class="cv-pub-title">Business Process Management for optimizing clinical processes: A systematic literature review</div>
-          <div class="cv-pub-venue">De Ramón Alberto, Ruíz-Fernández Daniel, Sabuco García Yolanda · Health Informatics Journal</div>
-        </div>
-      </a>
-
-      <a class="cv-pub-item" href="https://caseib.es/2023/wp-content/uploads/2023/12/CASEIB2023_LIBRO_DE_ACTAS_FINAL_COMP.pdf" target="_blank" rel="noopener">
-        <div class="cv-pub-year">2023</div>
-        <div>
-          <span class="cv-pub-type">Congress</span>
-          <div class="cv-pub-title">Classifying pathologies using acoustic voice analysis</div>
-          <div class="cv-pub-venue">Annual Congress of the Spanish Society of Biomedical Engineering</div>
-        </div>
-      </a>
-
-      <a class="cv-pub-item" href="https://github.com/yoliyu/diseases-detection-by-voice/blob/master/Poster-Transform4EuropeSymposium2023.pdf" target="_blank" rel="noopener">
-        <div class="cv-pub-year">2023</div>
-        <div>
-          <span class="cv-pub-type">Symposium</span>
-          <div class="cv-pub-title">Binary classification by voice using machine learning in the Saarbrücken Voice Database</div>
-          <div class="cv-pub-venue">TRANSFORM4EUROPE Doctoral Symposium · University of Alicante</div>
-        </div>
-      </a>
-
-      <a class="cv-pub-item" href="https://oa.upm.es/71085/" target="_blank" rel="noopener">
-        <div class="cv-pub-year">2022</div>
-        <div>
-          <span class="cv-pub-type">Master's Thesis</span>
-          <div class="cv-pub-title">Interoperable platform for monitoring patients with obesity</div>
-          <div class="cv-pub-venue">School of Computer Systems Engineering · Technical University of Madrid</div>
-        </div>
-      </a>
-
-      <a class="cv-pub-item" href="https://eps.ua.es/es/ingenieria-biomedica/documentos/ejemplos-tfg/2020-2021/tfg-e.pdf" target="_blank" rel="noopener">
-        <div class="cv-pub-year">2021</div>
-        <div>
-          <span class="cv-pub-type">Bachelor's Thesis</span>
-          <div class="cv-pub-title">FHIR Interoperability in Personal Health Devices (PHD Bluetooth profile, ISO 11073 and FHIR)</div>
-          <div class="cv-pub-venue">Polytechnic School · University of Alicante</div>
-        </div>
-      </a>
-
-      <a class="cv-pub-item" href="https://www.senc.es/wp-content/uploads/2024/11/COMUNICATIONS-SENC2015.pdf" target="_blank" rel="noopener">
-        <div class="cv-pub-year">2015</div>
-        <div>
-          <span class="cv-pub-type">Congress</span>
-          <div class="cv-pub-title">FGF8 contribution in the specification and differentiation of the hypothalamus</div>
-          <div class="cv-pub-venue">16th National Congress of the Spanish Society of Neuroscience · Research Intern, Institute of Neurosciences (CSIC-UMH)</div>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</div>
-
-<!-- ── RESEARCH & ACADEMIC ── -->
-<div class="cv-section">
-  <div class="container">
-    <div class="cv-section__label">Research &amp; Academic Outreach</div>
-    <div class="research-grid">
-      <div class="research-item">
-        <div class="research-item__title">Research Intern | Experimental Embryology Laboratory</div>
-        <div class="research-item__detail">Institute of Neurosciences (CSIC-UMH), Alicante, Spain · Summer 2014 &amp; Summer 2015 (6 months total)</div>
-      </div>
-      <div class="research-item">
-        <div class="research-item__title">Academic and Teaching Experience | Telemedicine &amp; Biomedical Engineering</div>
-        <div class="research-item__detail">Invited by the University of Alicante in 2024 and 2025 to give a series of talks to Biomedical Engineering students on challenges in implementing interoperable systems.</div>
-      </div>
-    </div>
-  </div>
-</div>
+</div><!-- cv-doc -->
+</div><!-- cv-bg -->
 
 <footer class="footer">
   <div class="container">
