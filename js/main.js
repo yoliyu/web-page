@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hobbiesViewport = hobbiesTrack.parentElement;
     const GAP_PX = 12;
     function getVisible() {
-      return window.innerWidth <= 540 ? 1 : window.innerWidth <= 900 ? 2 : 3;
+      return window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
     }
 
     // Clone all slides and append for seamless looping

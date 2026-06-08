@@ -525,6 +525,7 @@ section { padding: 4.5rem 0; }
 .hobbies-section {
   padding: 4.5rem 3.5rem;
   border-bottom: 1px solid var(--border);
+  overflow: hidden;
 }
 
 .hobbies-inner {
@@ -1311,6 +1312,8 @@ html:has(body.has-banner)  { scroll-padding-top: calc(var(--banner-height) + var
 @media (max-width: 560px) {
   .skills-domain__grid,
   .skills-domain__grid--wide { grid-template-columns: repeat(2, 1fr); }
+  .skills-domain { padding: 1.1rem 1rem; }
+  .stag { white-space: normal; word-break: break-word; font-size: 0.7rem; }
 }
 
 /* === PROJECTS === */
