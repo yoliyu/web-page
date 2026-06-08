@@ -2304,8 +2304,6 @@ body:has(.blog-cards-section) .nav__hamburger span { background: var(--text); }
   /* Intro section */
   .intro-section { padding: 2rem 1rem 1.75rem; gap: 1.75rem; }
   .intro-section__text p { font-size: 0.8rem; line-height: 1.75; }
-  .intro-video-circle { width: 160px; height: 160px; }
-  .intro-video-label { font-size: 0.95rem; }
 
   /* Hobbies */
   .hobbies-section { padding: 2.5rem 1rem; }

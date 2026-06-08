@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* --- INTRO VIDEO CLICK TO PLAY --- */
   document.getElementById('introVideo')?.addEventListener('click', function () {
-    this.innerHTML = '<iframe src="https://www.youtube.com/embed/8aj2rQQcRYQ?autoplay=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    this.innerHTML = '<iframe src="https://www.youtube.com/embed/8aj2rQQcRYQ?autoplay=1&rel=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
   });
 
   /* --- ANIMATED 3D BACKGROUND --- */
