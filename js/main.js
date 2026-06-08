@@ -238,8 +238,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const hobbiesTrack = document.getElementById('hobbiesTrack');
   if (hobbiesTrack) {
     const hobbiesViewport = hobbiesTrack.parentElement;
-    const VISIBLE = 3;
-    const GAP_PX  = 12;
+    const GAP_PX = 12;
+    function getVisible() {
+      return window.innerWidth <= 540 ? 1 : window.innerWidth <= 900 ? 2 : 3;
+    }
 
     // Clone all slides and append for seamless looping
     const origSlides = Array.from(hobbiesTrack.children);
@@ -254,7 +256,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = hobbiesTrack.closest('.hobbies-carousel').querySelector('.hobbies-btn--next');
 
     function slideW() {
-      return (hobbiesViewport.offsetWidth - GAP_PX * (VISIBLE - 1)) / VISIBLE;
+      const v = getVisible();
+      return (hobbiesViewport.offsetWidth - GAP_PX * (v - 1)) / v;
     }
 
     function moveTo(i, animate = true) {
