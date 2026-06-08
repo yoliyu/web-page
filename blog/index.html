@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
 <nav class="nav">
   <div class="nav__inner">
     <div class="nav__links">
@@ -29,7 +31,7 @@
 </nav>
 
 <!-- Blog Header -->
-<section style="padding-top: calc(var(--nav-height) + 4rem); padding-bottom: 0; background: var(--surface); border-bottom: 1px solid var(--border);">
+<section class="blog-index-header">
   <div class="container">
     <div class="section-title">
       <span class="section-label">Writing</span>
@@ -39,7 +41,7 @@
 </section>
 
 <!-- Filter + Posts -->
-<section>
+<section class="blog-cards-section">
   <div class="container">
 
     <div class="filter-row" role="group" aria-label="Filter posts by category">

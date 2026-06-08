@@ -10,95 +10,104 @@
 </head>
 <body>
 
-<!-- ==================== NAVIGATION ==================== -->
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav__inner">
- 
-    <div class="nav__links" role="list">
-      <a href="#expertise"     class="nav__link">Who I Am</a>
-      <a href="#experience"   class="nav__link">Career Path</a>
-      <a href="#skills"       class="nav__link">IT Skills</a>
-      <a href="#projects"     class="nav__link">Key Projects</a>
-      <a href="#publications" class="nav__link">Research</a>
-      <a href="#blog"         class="nav__link">Blog</a>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<!-- ==================== SIDEBAR ==================== -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar__inner">
+
+    <div class="sidebar__profile">
+      <img src="images/portrait.png" alt="Yolanda Sabuco Garcia" class="sidebar__photo" />
+      <h1 class="sidebar__name">
+        <span class="accent">Yolanda</span><br>Sabuco Garcia
+      </h1>
+      <p class="sidebar__role">Senior Healthcare Interoperability Specialist</p>
     </div>
 
-    <div class="nav__social">
-      <!-- GitHub -->
+    <nav class="sidebar__nav" role="navigation" aria-label="Main navigation">
+      <a href="#expertise"     class="sidebar__nav-link">Who I Am</a>
+      <a href="#experience"    class="sidebar__nav-link">Career Path</a>
+      <a href="#skills"        class="sidebar__nav-link">IT Skills</a>
+      <a href="#projects"      class="sidebar__nav-link">Key Projects</a>
+      <a href="#publications"  class="sidebar__nav-link">Research</a>
+      <a href="#blog"          class="sidebar__nav-link">Blog</a>
+    </nav>
+
+    <div class="sidebar__social">
       <a href="https://github.com/yoliyu" aria-label="GitHub">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
       </a>
-      <!-- LinkedIn -->
       <a href="https://www.linkedin.com/in/yolanda-sabuco-garcia/" aria-label="LinkedIn">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       </a>
-      <!-- YouTube -->
       <a href="https://www.youtube.com/@yolandasabuco-io" aria-label="YouTube">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
       </a>
-      <!-- Email -->
       <a href="mailto:info@yolandasabuco.io" aria-label="Email">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
       </a>
     </div>
 
-    <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="sidebar__cta">
+      <a href="https://www.linkedin.com/in/yolanda-sabuco-garcia/" class="btn btn--outline btn--sm">LinkedIn</a>
+      <a href="https://github.com/yoliyu" class="btn btn--outline btn--sm">GitHub</a>
+    </div>
+
+    <div class="sidebar__impressum">
+      <a href="impressum.html">Impressum</a>
+    </div>
+
+  </div>
+</aside>
+
+<!-- ==================== MOBILE TOGGLE ==================== -->
+<button class="sidebar__mobile-toggle" aria-label="Open navigation" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<main class="main-content">
+
+<!-- Intro section -->
+<div class="intro-section">
+  <div class="intro-section__text">
+    <div class="intro-prompt-bar">
+      <span class="intro-prompt-dot intro-prompt-dot--red"></span>
+      <span class="intro-prompt-dot intro-prompt-dot--yellow"></span>
+      <span class="intro-prompt-dot intro-prompt-dot--green"></span>
+      <span class="intro-prompt-label">prompt.txt</span>
+    </div>
+    <div class="intro-prompt-body">
+      <p><span class="intro-prompt-caret">›</span> Hello! My name is Yolanda and I'm Senior Healthcare Interoperability Specialist, currently based in Luzern, Switzerland.</p>
+      <p><span class="intro-prompt-caret">›</span> 7+ years advising organisations on digital health strategy, interoperability architecture, and regulatory compliance at companies like <strong>Roche</strong>, <strong>Fresenius Medical Care</strong>, and <strong>Dedalus</strong>.<span class="intro-prompt-cursor">▌</span></p>
+    </div>
   </div>
 
-  <!-- Mobile menu -->
-  <div class="nav__mobile-menu" role="dialog" aria-label="Mobile navigation">
-        <a href="#expertise"     class="nav__mobile-link">Who I Am</a>
-      <a href="#experience"   class="nav__mobile-link">Career Path</a>
-      <a href="#skills"       class="nav__mobile-link">IT Skills</a>
-      <a href="#projects"     class="nav__mobile-link">Key Projects</a>
-      <a href="#publications" class="nav__mobile-link">Research</a>
-      <a href="#blog"         class="nav__mobile-link">Blog</a>
-  </div>
-</nav>
-
-<!-- ==================== HERO ==================== -->
-<section class="hero" id="hero">
-  <div class="container">
-    <div class="hero__inner">
-      <div class="hero__content">
-        <div class="hero__open-to-work">Open to Work</div>
-        <h1 class="hero__name">
-          <span class="accent">Yolanda</span><br>Sabuco Garcia
-        </h1>
-        <p class="hero__bio">
-          From theory to practice: sharing direct lessons to drive digital health. 
-        </p>
-
-        <div class="hero__stats">
-          <div class="hero__stat">
-            <div class="hero__stat-value">+7</div>
-            <div class="hero__stat-label">Years in Digital Health</div>
-          </div>
-          <div class="hero__stat">
-            <div class="hero__stat-value">5</div>
-            <div class="hero__stat-label">International Companies</div>
-          </div>
-        </div>
-
-        <div class="hero__cta">
-<a href="https://www.linkedin.com/in/yolanda-sabuco-garcia/" class="btn btn--outline">LinkedIn</a>
-          <a href="https://github.com/yoliyu" class="btn btn--outline">GitHub</a>
-        </div>
-      </div>
-
-      <div class="hero__img-wrapper reveal reveal-d2">
+  <div class="intro-section__video">
+    <div class="intro-video-wrap">
+      <div class="intro-video-label">Let me<br>introduce<br>myself</div>
+      <div class="intro-video-circle" id="introVideo">
         <img
-          class="hero__img"
-          src="images/portrait.png"
-          alt="Yolanda Sabuco Garcia"
+          src="https://img.youtube.com/vi/8aj2rQQcRYQ/hqdefault.jpg"
+          alt="Introduction video — click to play"
+          class="intro-video-thumb"
         />
-
+        <button class="intro-video-play" aria-label="Play introduction video">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </button>
       </div>
     </div>
   </div>
-</section>
+</div>
+
+<!-- Blog CTA -->
+<div class="blog-cta-wrap">
+  <a href="#blog" class="blog-cta-btn">
+    <svg class="blog-cta-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+    <span class="blog-cta-btn__text">Jump to my blog</span>
+    <span class="blog-cta-btn__pip"></span>
+  </a>
+</div>
 
 <!-- ==================== EXPERTISE ==================== -->
 <section class="expertise-section" id="expertise">
@@ -108,41 +117,49 @@
       <div class="divider"></div>
    </div>
 
-    <div class="expertise-grid">
- 
+    <div class="expertise-cards">
+
       <div class="expertise-card reveal reveal-d1">
         <div class="expertise-card__icon expertise-card__icon--green">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         </div>
-        <div class="expertise-card__title">360° Healthcare Vision</div>
-        <p class="expertise-card__text">Bridging the gap between technical, medical, and executive departments, leveraging a multidisciplinary background in Medicine, Biomedical Engineering, and Web Engineering.</p>
+        <div class="expertise-card__header">
+          <div class="expertise-card__title">360° Healthcare Vision</div>
+        </div>
+        <p class="expertise-card__text">Bridging clinical, technical, and regulatory domains. Multidisciplinary background in Medicine, Biomedical Engineering, and Web Engineering across several international companies.</p>
       </div>
 
       <div class="expertise-card reveal reveal-d2">
         <div class="expertise-card__icon expertise-card__icon--amber">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <div class="expertise-card__title">Data Strategy &amp; Governance</div>
-        <p class="expertise-card__text">Defining data flows and interoperability strategies across large-scale organizations. Led ISO-27001, GDPR, and the Spanish National Security Framework certification, passed on the first audit attempt. Certified Data Management Professional (CDMP® ) certification in progress.</p>
+        <div class="expertise-card__header">
+          <div class="expertise-card__title">Data Strategy &amp; Governance</div>
+        </div>
+        <p class="expertise-card__text">Defining data flows and interoperability strategies at scale. Translating regulatory requirements into commercial value. European Health Data Space (EHDS) expert.</p>
       </div>
 
       <div class="expertise-card reveal reveal-d3">
         <div class="expertise-card__icon expertise-card__icon--rose">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         </div>
-        <div class="expertise-card__title">Clinical Digitalization</div>
-        <p class="expertise-card__text">Translating complex clinical requirements into digital products across Oncology, Genetics, Dialysis, Diabetes, and Ophthalmology. In-deph knowledge of Emergency, Admission and Outpatient circuits, appointment and waiting list modules, clinical report generation and prescription, medication, administration and dispensing in Hospital Information System.</p>
+        <div class="expertise-card__header">
+          <div class="expertise-card__title">Clinical Digitalization</div>
+        </div>
+        <p class="expertise-card__text">Translating clinical requirements into digital products across Oncology, Genetics, Dialysis, Diabetes, and Ophthalmology. Deep knowledge of HIS workflows from admission to medication and clinical reporting.</p>
       </div>
 
-           <div class="expertise-card reveal">
+      <div class="expertise-card reveal">
         <div class="expertise-card__icon expertise-card__icon--blue">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
         </div>
-        <div class="expertise-card__title">Healthcare Interoperability</div>
-        <p class="expertise-card__text">Deep expertise in HL7 FHIR and HL7 V2. Design of Implementation Guides and Enterprise Service Bus integrations. HL7 FHIR® Proficient Certification.</p>
+        <div class="expertise-card__header">
+          <div class="expertise-card__title">Healthcare Interoperability</div>
+        </div>
+        <p class="expertise-card__text">Deep expertise in HL7 FHIR R4/R5 and HL7 V2. Authored national Implementation Guides for Switzerland and Spain. HL7 FHIR® Proficient certified. Enterprise Service Bus integrations on InterSystems IRIS.</p>
       </div>
 
-    </div>
+      </div>
   </div>
 </section>
 
@@ -158,31 +175,31 @@
     <div class="exp-timeline">
 
       <div class="t-item reveal">
-        <div class="t-date">Now · Zurich, Switzerland</div>
+        <div class="t-date">Jan 2026 – May 2026 · Zurich, Switzerland</div>
         <div class="t-company">AHDIS</div>
         <div class="t-role">Senior Healthcare Interoperability Specialist</div>
-        <p class="t-desc">Creating FHIR Implementation Guides for the Swiss Digital Health ecosystem. Contributing to open-source tools.</p>
+        <p class="t-desc">Led FHIR requirements analysis for the Digisanté project Nasure, focusing on FHIR Structured Data Capture (SDC) and data-structure design for clinical pathogen reporting. Contributed to the matchbox open-source project. Specification and conceptual design of a nursing classification FHIR Implementation Guide (.NET, FHIR IG Publisher, FSH). Active participant in the HL7 FHIR CH Core working group.</p>
       </div>
 
       <div class="t-item reveal">
         <div class="t-date">Nov 2024 – Dec 2025 · Basel, Switzerland</div>
         <div class="t-company">Roche</div>
-        <div class="t-role">Knowledge Engineer</div>
-        <p class="t-desc">Owned the interoperability layer in Data Architecture department. Drove adoption of FHIR across product teams  in a SAFe environment. Enabling FAIR data services for the entire RIS product portfolio.</p>
+        <div class="t-role">Knowledge Engineer ·  Data Architecture &amp; Interoperability</div>
+        <p class="t-desc">Member of the Knowledge Engineering & Data Modeling team within the Diagnostics division. Shaped data models and interoperability standards across multiple product lines in the navify portfolio, applying FAIR principles and Data Mesh thinking to enable reusable, governed data services. Worked across clinical, product, engineering, and architecture stakeholders to align on data standards and drive adoption. Delivered FHIR Implementation Guides and reusable data model components as shared artefacts across product teams. Built team capability in FHIR-based data modeling to enable product independence. SAFe environment.</p>
       </div>
 
       <div class="t-item reveal">
         <div class="t-date">Mar 2024 – Nov 2024 · Madrid, Spain</div>
         <div class="t-company">Fresenius Medical Care</div>
         <div class="t-role">Data &amp; Connectivity Manager · Security Responsible</div>
-        <p class="t-desc">Designed the national interoperability strategy covering 45+ dialysis clinics. Led implementation of a Security Management System and achieved the Spanish National Security Framework (Royal Decree 311/2022) certification on the first audit attempt.</p>
+        <p class="t-desc">Sole owner of the national digital health interoperability strategy for 45+ dialysis clinics. Conducted stakeholder workshops with clinical directors and IT leads to assess integration opportunities with referral hospitals. Authored the interoperability requirements for upcoming procurement tenders. Managed external vendors and third-party contracts. Led the ENS security certification programme from zero to successful external audit (Royal Decree 311/2022) — passed on the first attempt. Translated both the interoperability strategy and the ENS certification into commercial value: contributed to pre-sales efforts by framing regulatory compliance and data connectivity capabilities as competitive differentiators in tender submissions.</p>
       </div>
 
       <div class="t-item reveal">
         <div class="t-date">Oct 2022 – Mar 2024 · Madrid, Spain</div>
         <div class="t-company">Dedalus Healthcare</div>
         <div class="t-role">Healthcare Interoperability Specialist</div>
-        <p class="t-desc">Defined and implemented the Hospital Information System interoperability strategy. Led FHIR Implementation Guide design and Enterprise Service Bus integrations on InterSystems IRIS HealthShare.</p>
+        <p class="t-desc">Designed and implemented the FHIR interoperability layer for HCIS. Dedalus's hospital information system deployed across 10 major hospitals within SERMAS (Servicio Madrileño de Salud), including Hospital La Paz, Ramón y Cajal, Gregorio Marañón, and 12 de Octubre. Defined the generic FHIR interface specification for the Spanish market, translating clinical and regulatory requirements into reusable interoperability artefacts. Coordinated architecture and development teams. Enterprise Service Bus integrations on InterSystems IRIS HealthShare.</p>
       </div>
 
       <div class="t-item reveal">
@@ -224,118 +241,120 @@
       <div class="divider"></div>
       <h2>Standards, Tools &amp; Technologies</h2>
     </div>
-    
-    <div class="skills-grid">
 
-      <div class="skill-card r d1">
-        <span class="skill-card__icon">⚕</span>
-        <h3 class="skill-card__title">Interoperability Standards</h3>
-        <div class="skill-card__tags">
-          <span class="stag">HL7 FHIR</span><span class="stag">HL7 V2</span><span class="stag">ISO-11073</span>
+    <div class="skills-bento reveal">
+
+      <!-- Domain 1: Healthcare & Interoperability -->
+      <div class="skills-domain skills-domain--health">
+        <div class="skills-domain__header">
+          <span class="skills-domain__icon">⚕</span>
+          <span class="skills-domain__name">Healthcare &amp; Interoperability</span>
+        </div>
+        <div class="skills-domain__grid">
+          <div class="skill-bcard">
+            <div class="skill-bcard__title">Standards</div>
+            <div class="skill-bcard__tags">
+              <span class="stag">HL7 FHIR</span><span class="stag">HL7 V2</span><span class="stag">ISO-11073</span>
+            </div>
+          </div>
+          <div class="skill-bcard">
+            <div class="skill-bcard__title">Technologies</div>
+            <div class="skill-bcard__tags">
+              <span class="stag">FHIR Shorthand</span><span class="stag">FHIRPath</span><span class="stag">HAPI FHIR</span><span class="stag">Simplifier</span><span class="stag">Forge</span><span class="stag">FHIR Azure</span><span class="stag">LHC FHIR Tools</span>
+            </div>
+          </div>
+          <div class="skill-bcard">
+            <div class="skill-bcard__title">Terminologies</div>
+            <div class="skill-bcard__tags">
+              <span class="stag">SNOMED CT</span><span class="stag">LOINC</span><span class="stag">ATC</span><span class="stag">ICD</span><span class="stag">HGVS</span><span class="stag">Sequence Ontology</span>
+            </div>
+          </div>
+          <div class="skill-bcard">
+            <div class="skill-bcard__title">Regulations</div>
+            <div class="skill-bcard__tags">
+              <span class="stag">EHDS</span><span class="stag">ENS</span><span class="stag">ISO-27001</span><span class="stag">GDPR</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="skill-card r d2">
-        <span class="skill-card__icon">🔗</span>
-        <h3 class="skill-card__title">Interoperability Technologies</h3>
-        <div class="skill-card__tags">
-          <span class="stag">FHIR Shorthand</span><span class="stag">FHIRPath</span><span class="stag">HAPI FHIR</span><span class="stag">Simplifier</span><span class="stag">Forge</span><span class="stag">FHIR Azure</span><span class="stag">LHC FHIR Tools</span>
+      <!-- Domain 2: Programming Languages -->
+      <div class="skills-domain skills-domain--code">
+        <div class="skills-domain__header">
+          <span class="skills-domain__icon">💻</span>
+          <span class="skills-domain__name">Programming Languages</span>
+        </div>
+        <div class="skills-domain__grid">
+          <div class="skill-bcard">
+            <div class="skill-bcard__title">☕ Java</div>
+            <div class="skill-bcard__tags">
+              <span class="stag">Spring Framework</span><span class="stag">JUnit</span><span class="stag">Mockito</span>
+            </div>
+          </div>
+          <div class="skill-bcard">
+            <div class="skill-bcard__title">◆ .NET</div>
+            <div class="skill-bcard__tags">
+              <span class="stag">C#</span><span class="stag">Dapper</span><span class="stag">Entity Framework Core</span><span class="stag">SQL Server</span>
+            </div>
+          </div>
+          <div class="skill-bcard">
+            <div class="skill-bcard__title">🐍 Python</div>
+            <div class="skill-bcard__tags">
+              <span class="stag">FastAPI</span><span class="stag">NumPy</span><span class="stag">Pandas</span><span class="stag">SciPy</span><span class="stag">Matplotlib</span><span class="stag">Seaborn</span><span class="stag">Scikit-learn</span><span class="stag">TensorFlow</span>
+            </div>
+          </div>
+          <div class="skill-bcard">
+            <div class="skill-bcard__title">⚡ JavaScript</div>
+            <div class="skill-bcard__tags">
+              <span class="stag">Vue.js</span><span class="stag">Angular</span><span class="stag">Node.js</span><span class="stag">Ionic</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="skill-card r d3">
-        <span class="skill-card__icon">🏥</span>
-        <h3 class="skill-card__title">Terminologies &amp; Nomenclators</h3>
-        <div class="skill-card__tags">
-          <span class="stag">SNOMED CT</span><span class="stag">LOINC</span><span class="stag">ATC</span><span class="stag">ICD</span><span class="stag">HGVS</span><span class="stag">Sequence Ontology</span>
+      <!-- Domain 3: Infrastructure & DevOps -->
+      <div class="skills-domain skills-domain--infra">
+        <div class="skills-domain__header">
+          <span class="skills-domain__icon">⚙</span>
+          <span class="skills-domain__name">Infrastructure &amp; DevOps</span>
         </div>
-      </div>
-
-      <div class="skill-card r d1">
-        <span class="skill-card__icon">📋</span>
-        <h3 class="skill-card__title">Regulations</h3>
-        <div class="skill-card__tags">
-          <span class="stag">EHDS</span><span class="stag">ENS</span><span class="stag">ISO-27001</span><span class="stag">GDPR</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d2">
-        <span class="skill-card__icon">☕</span>
-        <h3 class="skill-card__title">Java</h3>
-        <div class="skill-card__tags">
-          <span class="stag">Spring Framework</span><span class="stag">JUnit</span><span class="stag">Mockito</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d3">
-        <span class="skill-card__icon">◆</span>
-        <h3 class="skill-card__title">.NET</h3>
-        <div class="skill-card__tags">
-          <span class="stag">C#</span><span class="stag">Dapper</span><span class="stag">Entity Framework Core</span><span class="stag">SQL Server</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d1">
-        <span class="skill-card__icon">🐍</span>
-        <h3 class="skill-card__title">Python</h3>
-        <div class="skill-card__tags">
-          <span class="stag">FastAPI</span><span class="stag">NumPy</span><span class="stag">Pandas</span><span class="stag">SciPy</span><span class="stag">Matplotlib</span><span class="stag">Seaborn</span><span class="stag">Scikit-learn</span><span class="stag">TensorFlow</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d2">
-        <span class="skill-card__icon">⚡</span>
-        <h3 class="skill-card__title">JavaScript</h3>
-        <div class="skill-card__tags">
-          <span class="stag">Vue.js</span><span class="stag">Angular</span><span class="stag">Node.js</span><span class="stag">Ionic</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d3">
-        <span class="skill-card__icon">🔒</span>
-        <h3 class="skill-card__title">Security</h3>
-        <div class="skill-card__tags">
-          <span class="stag">OAuth</span><span class="stag">OpenID</span><span class="stag">CAS</span><span class="stag">JWT</span><span class="stag">KeyCloak</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d1">
-        <span class="skill-card__icon">🐳</span>
-        <h3 class="skill-card__title">Virtualization</h3>
-        <div class="skill-card__tags">
-          <span class="stag">Docker</span><span class="stag">Kubernetes</span><span class="stag">Oracle VM</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d2">
-        <span class="skill-card__icon">⚙</span>
-        <h3 class="skill-card__title">CI/CD</h3>
-        <div class="skill-card__tags">
-          <span class="stag">Git</span><span class="stag">GitHub</span><span class="stag">GitLab</span><span class="stag">JFrog</span><span class="stag">SonarCloud</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d3">
-        <span class="skill-card__icon">☁</span>
-        <h3 class="skill-card__title">Cloud</h3>
-        <div class="skill-card__tags">
-          <span class="stag">Azure FHIR Server</span><span class="stag">Amazon S3</span><span class="stag">Heroku</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d1">
-        <span class="skill-card__icon">🗄</span>
-        <h3 class="skill-card__title">Relational Databases</h3>
-        <div class="skill-card__tags">
-          <span class="stag">MariaDB</span><span class="stag">OracleDB</span><span class="stag">PostgreSQL</span>
-        </div>
-      </div>
-
-      <div class="skill-card r d2">
-        <span class="skill-card__icon">🍃</span>
-        <h3 class="skill-card__title">NoSQL Databases</h3>
-        <div class="skill-card__tags">
-          <span class="stag">MongoDB</span>
+        <div class="skills-domain__grid skills-domain__grid--wide">
+          <div class="skill-bcard">
+            <div class="skill-bcard__title">🔒 Security</div>
+            <div class="skill-bcard__tags">
+              <span class="stag">OAuth</span><span class="stag">OpenID</span><span class="stag">CAS</span><span class="stag">JWT</span><span class="stag">KeyCloak</span>
+            </div>
+          </div>
+          <div class="skill-bcard">
+            <div class="skill-bcard__title">🐳 Virtualization</div>
+            <div class="skill-bcard__tags">
+              <span class="stag">Docker</span><span class="stag">Kubernetes</span><span class="stag">Oracle VM</span>
+            </div>
+          </div>
+          <div class="skill-bcard">
+            <div class="skill-bcard__title">⚙ CI/CD</div>
+            <div class="skill-bcard__tags">
+              <span class="stag">Git</span><span class="stag">GitHub</span><span class="stag">GitLab</span><span class="stag">JFrog</span><span class="stag">SonarCloud</span>
+            </div>
+          </div>
+          <div class="skill-bcard">
+            <div class="skill-bcard__title">☁ Cloud</div>
+            <div class="skill-bcard__tags">
+              <span class="stag">Azure FHIR Server</span><span class="stag">Amazon S3</span><span class="stag">Heroku</span>
+            </div>
+          </div>
+          <div class="skill-bcard">
+            <div class="skill-bcard__title">🗄 Relational DB</div>
+            <div class="skill-bcard__tags">
+              <span class="stag">MariaDB</span><span class="stag">OracleDB</span><span class="stag">PostgreSQL</span>
+            </div>
+          </div>
+          <div class="skill-bcard">
+            <div class="skill-bcard__title">🍃 NoSQL DB</div>
+            <div class="skill-bcard__tags">
+              <span class="stag">MongoDB</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -356,71 +375,89 @@
 
       <a class="project-card reveal" href="https://github.com/ahdis/ch-ekm" target="_blank" rel="noopener">
         <span class="project-card__num">01</span>
-        <div class="project-card__title">FHIR® Implementation Guide for the Swiss Federal Office of Public Health (FOPH)</div>
-        <p class="project-card__desc">FHIR Implementation Guide for the Elektronische klinische Meldung (Electronic Clinical Notification for infectious diseases) of the Swiss Federal Office of Public Health.</p>
-        <div class="project-card__tags">
-          <span class="tag">HL7 FHIR</span>
-          <span class="tag">FSH</span>
-          <span class="tag">Clinical Terminologies</span>
+        <div class="project-card__body">
+          <div class="project-card__title">FHIR® Implementation Guide for the Swiss Federal Office of Public Health (FOPH)</div>
+          <p class="project-card__desc">FHIR Implementation Guide for the Elektronische klinische Meldung (Electronic Clinical Notification for infectious diseases) of the Swiss Federal Office of Public Health.</p>
+          <div class="project-card__tags">
+            <span class="tag">HL7 FHIR</span>
+            <span class="tag">FSH</span>
+            <span class="tag">Clinical Terminologies</span>
+          </div>
         </div>
+        <span class="project-card__arrow">↗</span>
       </a>
 
-      <a class="project-card reveal reveal-d1" href="https://simplifier.net/guide/interoperability-r5-guide?version=current" target="_blank" rel="noopener">
+      <a class="project-card reveal" href="https://simplifier.net/guide/interoperability-r5-guide?version=current" target="_blank" rel="noopener">
         <span class="project-card__num">02</span>
-        <div class="project-card__title">FHIR® Roche Diabetes Care Implementation Guide</div>
-        <p class="project-card__desc">FHIR Implementation Guide supporting interoperability for the Roche Diabetes Care RIS product portfolio, enabling FAIR data services for medical devices and digital health products.</p>
-        <div class="project-card__tags">
-          <span class="tag">HL7 FHIR</span>
-          <span class="tag">Clinical Terminologies</span>
+        <div class="project-card__body">
+          <div class="project-card__title">FHIR® Roche Diabetes Care Implementation Guide</div>
+          <p class="project-card__desc">FHIR Implementation Guide supporting interoperability for the Roche Diabetes Care RIS product portfolio, enabling FAIR data services for medical devices and digital health products.</p>
+          <div class="project-card__tags">
+            <span class="tag">HL7 FHIR</span>
+            <span class="tag">Clinical Terminologies</span>
+          </div>
         </div>
+        <span class="project-card__arrow">↗</span>
       </a>
 
-      <a class="project-card reveal reveal-d2" href="https://github.com/yoliyu/fhir-implementation-guide" target="_blank" rel="noopener">
+      <a class="project-card reveal" href="https://www.re-sample.eu/.utwente_base/ws2016/download.shtml?f=O5_9XioMaNfh8PK0x0Htt-JJfzcEspuH0BwfnKZmCgYvKi9m_qF_m31QECmokDwtgCNWqZRW84ezkwASUqZ4NyIy4R9ke6M8iX_IN6oIoEy_cZbfj283e3IxJGiqG2QK5wrn5II-cSlVSTQlyQb94Q95RwiJ_g9yoMv7aALqtOOOpUcBbIHMrJ7H7eZoABmmbPVT6axXIlHTK1OPGudKpnp0-yiV94WxSnqAJE7MyrLT2XXn1b-x_g.mHssrYJwh5fCp8bB.NkzsrcAi_Z4InBSGQfvFag" target="_blank" rel="noopener">
         <span class="project-card__num">03</span>
-        <div class="project-card__title">FHIR® Implementation Guide with Open Source Tools</div>
-        <p class="project-card__desc">End-to-end FHIR Implementation Guide development using open source tooling: FSH language, sushi compiler, IG Publisher, and Docker integration.</p>
-        <div class="project-card__tags">
-          <span class="tag">HL7 FHIR</span>
-          <span class="tag">FSH</span>
-          <span class="tag">IG Publisher</span>
-          <span class="tag">Docker</span>
+        <div class="project-card__body">
+          <div class="project-card__title">RESAMPLE H2020 — D4.1: Multi-Modal Data &amp; Disease Progression Monitoring</div>
+          <p class="project-card__desc">Public deliverable of the RESAMPLE European Project (H2020). Defined the representation of multi-modal clinical data and disease progression monitoring features for chronic disease management.</p>
+          <div class="project-card__tags">
+            <span class="tag">H2020</span>
+            <span class="tag">HL7 FHIR</span>
+            <span class="tag">Multi-modal Data</span>
+            <span class="tag">Public Deliverable</span>
+          </div>
         </div>
+        <span class="project-card__arrow">↗</span>
       </a>
 
       <a class="project-card reveal" href="https://github.com/healthtracker-platform" target="_blank" rel="noopener">
         <span class="project-card__num">04</span>
-        <div class="project-card__title">Interoperable Platform for Monitoring Patients with Obesity</div>
-        <p class="project-card__desc">Master's thesis project: interoperable web platform integrating Spring (backend), Angular (frontend), and FHIR Azure Server for remote patient monitoring in obesity management.</p>
-        <div class="project-card__tags">
-          <span class="tag">HL7 FHIR</span>
-          <span class="tag">Java - Spring</span>
-          <span class="tag">TypeScript - Angular and Ionic</span>
-          <span class="tag">FHIR Azure</span>
+        <div class="project-card__body">
+          <div class="project-card__title">Interoperable Platform for Monitoring Patients with Obesity</div>
+          <p class="project-card__desc">Master's thesis project: interoperable web platform integrating Spring (backend), Angular (frontend), and FHIR Azure Server for remote patient monitoring in obesity management.</p>
+          <div class="project-card__tags">
+            <span class="tag">HL7 FHIR</span>
+            <span class="tag">Java - Spring</span>
+            <span class="tag">TypeScript - Angular and Ionic</span>
+            <span class="tag">FHIR Azure</span>
+          </div>
         </div>
+        <span class="project-card__arrow">↗</span>
       </a>
 
-      <a class="project-card reveal reveal-d1" href="https://github.com/yoliyu/diseases-detection-by-voice" target="_blank" rel="noopener">
+      <a class="project-card reveal" href="https://github.com/yoliyu/diseases-detection-by-voice" target="_blank" rel="noopener">
         <span class="project-card__num">05</span>
-        <div class="project-card__title">Classifying Pathologies Using Acoustic Voice Analysis</div>
-        <p class="project-card__desc">System classifying pathologies through acoustic voice analysis using machine learning.</p>
-        <div class="project-card__tags">
-          <span class="tag">Signal Processing</span>
-          <span class="tag">Machine Learning</span>
-          <span class="tag">Python - TensorFlow</span>
-          <span class="tag">Python - Scikit-learn</span>
+        <div class="project-card__body">
+          <div class="project-card__title">Classifying Pathologies Using Acoustic Voice Analysis</div>
+          <p class="project-card__desc">System classifying pathologies through acoustic voice analysis using machine learning.</p>
+          <div class="project-card__tags">
+            <span class="tag">Signal Processing</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Python - TensorFlow</span>
+            <span class="tag">Python - Scikit-learn</span>
+          </div>
         </div>
+        <span class="project-card__arrow">↗</span>
       </a>
 
-      <a class="project-card reveal reveal-d2" href="https://www.youtube.com/watch?v=8aj2rQQcRYQ" target="_blank" rel="noopener">
+      <a class="project-card reveal" href="https://www.youtube.com/watch?v=8aj2rQQcRYQ" target="_blank" rel="noopener">
         <span class="project-card__num">06</span>
-        <div class="project-card__title">IEEE 11073 Bluetooth → FHIR Personal Health Devices Gateway</div>
-        <p class="project-card__desc">Bachelor's thesis: Health gateway on Raspberry Pi bridging medical devices with health systems via IEEE 11073 Bluetooth → FHIR conversion, enabling remote monitoring and emergency care.</p>
-        <div class="project-card__tags">
-          <span class="tag">HL7 FHIR</span>
-          <span class="tag">Raspberry Pi</span>
-          <span class="tag">Java - Spring</span>
-          <span class="tag">Python</span>
+        <div class="project-card__body">
+          <div class="project-card__title">IEEE 11073 Bluetooth → FHIR Personal Health Devices Gateway</div>
+          <p class="project-card__desc">Bachelor's thesis: Health gateway on Raspberry Pi bridging medical devices with health systems via IEEE 11073 Bluetooth → FHIR conversion, enabling remote monitoring and emergency care.</p>
+          <div class="project-card__tags">
+            <span class="tag">HL7 FHIR</span>
+            <span class="tag">Raspberry Pi</span>
+            <span class="tag">Java - Spring</span>
+            <span class="tag">Python</span>
+          </div>
         </div>
+        <span class="project-card__arrow">↗</span>
       </a>
 
     </div>
@@ -437,21 +474,23 @@
     </div>
 
     <div class="education__grid reveal">
-      <div class="education-card">
-        <div class="education-card__degree">Master's degree in Web Engineering</div>
+      <div class="education-card education-card--1">
+        <span class="education-badge">MSc</span>
+        <div class="education-card__degree">Web Engineering</div>
         <div class="education-card__school">Polytechnic University of Madrid, Spain</div>
-        <span class="education-badge">Master's</span>
       </div>
-      <div class="education-card">
-        <div class="education-card__degree">Bachelor's degree in Biomedical Engineering</div>
+      <div class="education-card education-card--2">
+        <span class="education-badge">BSc</span>
+        <div class="education-card__degree">Biomedical Engineering</div>
         <div class="education-card__school">University of Alicante, Spain</div>
-        <span class="education-badge">Bachelor's</span>
       </div>
-      <div class="education-card">
-        <div class="education-card__degree">Bachelor's degree in Medicine</div>
+      <div class="education-card education-card--3">
+        <div class="education-card__badge-row">
+          <span class="education-badge">BSc</span>
+          <span class="education-card__note">Studied up to 3rd year</span>
+        </div>
+        <div class="education-card__degree">Medicine</div>
         <div class="education-card__school">Miguel Hernández University, Spain</div>
-        <div class="education-card__note">Studied up to 3rd year</div>
-        <span class="education-badge">Partial Degree</span>
       </div>
     </div>
     </div>
@@ -540,8 +579,6 @@
   </div>
 </section>
 
-
-
 <!-- ==================== BLOG ==================== -->
 <section id="blog">
   <div class="container">
@@ -574,7 +611,7 @@
         </div>
       </a>
 
-<a class="blog-card r d2" data-category="personal" href="blog/goodbye-roche.html">
+      <a class="blog-card r d2" data-category="personal" href="blog/goodbye-roche.html">
         <div class="blog-img-wrap">
           <img class="blog-img" src="images/blog/Goodbye-e1767379319124.png" alt="Goodbye Roche" loading="lazy">
         </div>
@@ -597,7 +634,7 @@
             <span class="cat-pill cat-security">Security</span>
             <span class="blog-date">Nov 5, 2025</span>
           </div>
-          <div class="blog-title">Why the Spanish Security Framework (ENS) is a must-to-know in healthcare — even outside Spain</div>
+          <div class="blog-title">Why the Spanish Security Framework (ENS) is a must-to-know in healthcare sector even if you are not based in Spain?</div>
           <span class="blog-read">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
@@ -634,39 +671,63 @@
   </div>
 </section>
 
+<!-- ==================== HOBBIES ==================== -->
+<section id="hobbies" class="hobbies-section">
+  <div class="hobbies-inner">
+    <span class="section-label">Life beyond work</span>
+    <div class="hobbies-carousel">
+      <button class="hobbies-btn hobbies-btn--prev" aria-label="Previous">&#8249;</button>
+      <div class="hobbies-viewport">
+        <div class="hobbies-track" id="hobbiesTrack">
+          <div class="hobbies-slide">
+            <img src="images/blog/me/running.jpg" alt="Running" loading="lazy" />
+            <span class="hobbies-label">
+              <span class="hobbies-label__title">Running</span>
+              <span class="hobbies-label__sub">Best 10 km · 51 min</span>
+            </span>
+          </div>
+          <div class="hobbies-slide">
+            <img src="images/blog/me/beach.jpg" alt="Beach" loading="lazy" />
+            <span class="hobbies-label">
+              <span class="hobbies-label__title">Home</span>
+              <span class="hobbies-label__sub">My favourite beach in Alicante</span>
+            </span>
+          </div>
+          <div class="hobbies-slide">
+            <img src="images/blog/me/ski.jpeg" alt="Skiing" loading="lazy" />
+            <span class="hobbies-label">
+              <span class="hobbies-label__title">Skii</span>
+              <span class="hobbies-label__sub">2025 · The first time</span>
+            </span>
+          </div>
+          <div class="hobbies-slide">
+            <img src="images/blog/me/forest.jpeg" alt="Hiking" loading="lazy" />
+            <span class="hobbies-label">
+              <span class="hobbies-label__title">Hiking</span>
+              <span class="hobbies-label__sub">Discovering Swiss landscapes</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <button class="hobbies-btn hobbies-btn--next" aria-label="Next">&#8250;</button>
+    </div>
+  </div>
+</section>
+
 <!-- ==================== FOOTER ==================== -->
 <footer class="footer">
   <div class="container">
-    <div class="footer__inner">
-      <div class="footer__brand">
-        <div class="footer__tagline">Luzern, Switzerland</div>
-        <div class="footer__socials">
-          <a href="https://github.com/yoliyu" aria-label="GitHub" class="footer__social-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/in/yolanda-sabuco-garcia/" aria-label="LinkedIn" class="footer__social-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a href="https://www.youtube.com/@yolandasabuco-io" aria-label="YouTube" class="footer__social-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          </a>
-          <a href="mailto:info@yolandasabuco.io" aria-label="Email" class="footer__social-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="footer__links">
-      <a href="impressum.html" class="footer__link">Impressum</a>
-    </div>
     <div class="footer__copyright">© 2026 Yolanda Sabuco Garcia · yolandasabuco.io</div>
   </div>
 </footer>
+
+</main><!-- end .main-content -->
 
 <button class="back-to-top" aria-label="Back to top" title="Back to top">
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
 <script src="js/main.js"></script>
+
 </body>
 </html>
