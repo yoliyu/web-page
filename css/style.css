@@ -362,9 +362,8 @@ section { padding: 4.5rem 0; }
 
 /* === INTRO SECTION === */
 .intro-section {
-  display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 3rem;
+  display: flex;
+  justify-content: center;
   align-items: center;
   padding: 5rem 3.5rem 4rem;
   border-bottom: 1px solid var(--border);
@@ -372,6 +371,8 @@ section { padding: 4.5rem 0; }
 
 /* AI Prompt card */
 .intro-section__text {
+  max-width: 720px;
+  width: 100%;
   background: #111110;
   border: 1px solid rgba(200,150,60,0.25);
   border-radius: var(--radius-lg);
